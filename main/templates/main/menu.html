@@ -1,0 +1,1240 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Меню - Почилим</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* ========== ПОДКЛЮЧЕНИЕ ШРИФТОВ ========== */
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+        
+        /* ========== ОСНОВНОЙ ФОН ========== */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a3b3a;
+            background: linear-gradient(135deg, #0abab5 0%, #1a3b3a 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ========== ПАДАЮЩИЕ КАЛЬЯНЫ ========== */
+        .falling-images {
+            position: fixed;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .hookah-container {
+            position: absolute;
+            animation: fall linear infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+            z-index: 9999;
+            transform-origin: center;
+            will-change: transform;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .falling-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========== ХЕДЕР ========== */
+        .new-header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px 30px;
+            margin-bottom: 30px;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            box-shadow: 0 15px 35px rgba(0, 100, 100, 0.2);
+            position: relative;
+            z-index: 100;
+            border-bottom: 3px solid rgba(10, 186, 181, 0.3);
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-link {
+            display: block;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.5);
+            border: 5px solid white;
+            transition: 0.3s;
+            margin: 0 auto 20px auto;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(10, 186, 181, 0.7);
+            border-color: #0abab5;
+        }
+
+        .logo-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pochilim-text {
+            font-family: 'Rubik Marker Hatch', cursive;
+            font-size: 72px;
+            font-weight: 400;
+            margin: 10px 0 5px;
+            color: #1a3b3a;
+            text-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .pochilim-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            margin: 5px 0 0;
+            color: #1a3b3a;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ========== КОНТЕЙНЕР ========== */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .menu-subtitle {
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 300;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        /* ========== КАТЕГОРИИ МЕНЮ ========== */
+        .categories-wrapper {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            margin-bottom: 40px;
+        }
+
+        .categories-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px 20px;
+            scrollbar-width: thin;
+            scrollbar-color: #0abab5 rgba(255,255,255,0.3);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .categories-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .categories-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+        }
+
+        .categories-scroll::-webkit-scrollbar-thumb {
+            background: #0abab5;
+            border-radius: 10px;
+        }
+
+        .category-btn {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 12px 25px;
+            border-radius: 50px;
+            color: #1a3b3a;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid rgba(10, 186, 181, 0.3);
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #0abab5;
+            color: white;
+            border-color: white;
+            transform: scale(1.05);
+        }
+
+        /* ========== СЕКЦИИ МЕНЮ ========== */
+        .menu-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* ========== КАРТОЧКИ МЕНЮ ========== */
+        .menu-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            border-color: #0abab5;
+            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.3);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed rgba(10, 186, 181, 0.3);
+        }
+
+        .menu-item-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a3b3a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Убираем зеленые кружочки */
+        .item-icon {
+            display: none;
+        }
+
+        .menu-item-price {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0abab5;
+        }
+
+        .menu-item-description {
+            font-size: 14px;
+            color: #4a5a5a;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            padding-left: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* ========== НОВАЯ КНОПКА БРОНИРОВАНИЯ ========== */
+        .booking-wrapper {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .booking-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #1a3b3a, #0a5f5a);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 100px;
+            padding: 4px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-width: 100%;
+            text-decoration: none;
+        }
+
+        .booking-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.5);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .button-inner {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 100px;
+            padding: 8px 8px 8px 25px;
+            width: 100%;
+        }
+
+        .button-icon {
+            background: linear-gradient(135deg, #0abab5, #1a3b3a);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(10, 186, 181, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .booking-button:hover .button-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .button-icon span {
+            font-size: 24px;
+            color: white;
+        }
+
+        .button-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: #1a3b3a;
+            margin-right: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .button-phone {
+            background: linear-gradient(135deg, #1a3b3a, #0a5f5a);
+            border-radius: 100px;
+            padding: 12px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(10, 186, 181, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .booking-button:hover .button-phone {
+            background: linear-gradient(135deg, #0abab5, #1a3b3a);
+        }
+
+        @media (max-width: 768px) {
+            .button-inner {
+                padding: 6px 6px 6px 20px;
+            }
+            
+            .button-icon {
+                width: 40px;
+                height: 40px;
+                margin-right: 12px;
+            }
+            
+            .button-icon span {
+                font-size: 20px;
+            }
+            
+            .button-text {
+                font-size: 16px;
+                margin-right: 15px;
+            }
+            
+            .button-phone {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .booking-button {
+                width: 100%;
+            }
+            
+            .button-inner {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 15px;
+            }
+            
+            .button-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .button-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .button-phone {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ========== РЕЖИМ РАБОТЫ ========== */
+        .schedule-block {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 40px;
+            text-align: center;
+            margin-top: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .schedule-block p {
+            margin: 15px 0;
+            font-size: 22px;
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .schedule-block strong {
+            color: white;
+            font-weight: 700;
+            background: rgba(10, 186, 181, 0.3);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        /* ========== ФУТТЕР ========== */
+        .footer {
+            padding: 40px 20px 60px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .footer-oval {
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            border-radius: 200px 200px 100px 100px;
+            box-shadow: 0 -15px 35px rgba(10, 186, 181, 0.25);
+            border: 3px solid rgba(10, 186, 181, 0.3);
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-logo-link {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 15px 35px rgba(10, 186, 181, 0.4);
+            border: 3px solid white;
+            transition: 0.3s;
+        }
+
+        .footer-logo-link:hover {
+            transform: scale(1.05);
+            border-color: #0abab5;
+        }
+
+        .footer-logo-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-title {
+            font-family: 'Rubik Marker Hatch', cursive;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #0abab5;
+            text-transform: uppercase;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #1a3b3a;
+            text-transform: uppercase;
+        }
+
+        /* ========== СОЦИАЛЬНЫЕ КНОПКИ ========== */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 3px solid #0abab5;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .social-icon-img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .social-tooltip {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a3b3a;
+            color: white;
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 30px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            border: 2px solid #0abab5;
+            text-transform: uppercase;
+        }
+
+        .social-btn:hover .social-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: -45px;
+        }
+
+        .social-btn.telegram:hover { background: #0088cc; border-color: white; }
+        .social-btn.tiktok:hover { background: #000000; border-color: #00f2ea; }
+        .social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #d62976, #962fbf); border-color: white; }
+        .social-btn.vk:hover { background: #4c75a3; border-color: white; }
+        .social-btn.avito:hover { background: #d33b3b; border-color: white; }
+
+        /* ========== БУРГЕР-МЕНЮ ========== */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border: 3px solid #0abab5;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+            background: #0abab5;
+        }
+
+        .menu-toggle:hover span {
+            background: white;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 4px;
+            background: #0abab5;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .menu-toggle.active {
+            background: #0abab5;
+        }
+
+        .menu-toggle.active span {
+            background: white;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .dropdown-menu {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border-radius: 25px;
+            padding: 25px 0;
+            min-width: 320px;
+            max-width: 90vw;
+            z-index: 10000;
+            transform: translateX(150%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid #0abab5;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .dropdown-menu.active {
+            transform: translateX(0);
+        }
+
+        .dropdown-menu > a {
+            color: #1a3b3a;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            border-bottom: 2px solid rgba(10, 186, 181, 0.2);
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-menu > a:hover {
+            background: rgba(10, 186, 181, 0.1);
+            padding-left: 40px;
+            color: #0abab5;
+        }
+
+        .dropdown-menu > a:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-main {
+            color: #1a3b3a;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(10, 186, 181, 0.2);
+            transition: 0.3s;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .menu-item-main:hover {
+            background: rgba(10, 186, 181, 0.1);
+            padding-left: 40px;
+            color: #0abab5;
+        }
+
+        .menu-item-main:after {
+            content: '▼';
+            font-size: 14px;
+            color: #0abab5;
+            transition: 0.3s;
+            margin-left: 10px;
+        }
+
+        .menu-item-main:hover:after {
+            color: #0abab5;
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: rgba(10, 186, 181, 0.05);
+            display: none;
+            border-bottom: 2px solid rgba(10, 186, 181, 0.2);
+        }
+
+        .submenu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .submenu a {
+            display: block;
+            color: #4a5a5a;
+            text-decoration: none;
+            padding: 12px 30px 12px 50px;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(10, 186, 181, 0.1);
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .submenu a:hover {
+            background: rgba(10, 186, 181, 0.1);
+            padding-left: 60px;
+            color: #0abab5;
+        }
+
+        .submenu a:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 28px; }
+            .pochilim-text { font-size: 48px; }
+            .dropdown-menu {
+                top: 90px;
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== ПАДАЮЩИЕ КАЛЬЯНЫ ========== -->
+    <div class="falling-images">
+        <div class="hookah-container" style="left: 15%; width: 90px; animation-duration: 16s; animation-delay: 0s;">
+            <img src="{% static 'main/images/hookah2.png' %}" class="falling-img" loading="lazy" alt="">
+        </div>
+        <div class="hookah-container" style="left: 45%; width: 100px; animation-duration: 18s; animation-delay: 3s;">
+            <img src="{% static 'main/images/hookah2.png' %}" class="falling-img" loading="lazy" alt="">
+        </div>
+        <div class="hookah-container" style="left: 75%; width: 95px; animation-duration: 17s; animation-delay: 6s;">
+            <img src="{% static 'main/images/hookah2.png' %}" class="falling-img" loading="lazy" alt="">
+        </div>
+    </div>
+
+    <!-- ========== БУРГЕР-МЕНЮ ========== -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="/">ГЛАВНАЯ</a>
+        
+        <!-- КАЛЬЯНЫ -->
+        <div class="menu-item-main" onclick="toggleSubmenu('hookah-submenu')">КАЛЬЯНЫ</div>
+        <div id="hookah-submenu" class="submenu">
+            <a href="#hookahs">НА КАПСУЛЕ</a>
+            <a href="#hookahs">2 КАЛЬЯНА</a>
+            <a href="#hookahs">ПРЕМИУМ</a>
+            <a href="#hookahs">НА МОЛОКЕ</a>
+            <a href="#hookahs">АВТОРСКИЙ</a>
+            <a href="#hookahs">НА ГРЕЙПФРУТЕ</a>
+            <a href="#hookahs">НА АНАНАСЕ</a>
+            <a href="#hookahs">НА ГРАНАТЕ</a>
+            <a href="#hookahs">ПАРФЮМИРОВАННЫЙ</a>
+            <a href="#hookahs">МИКС</a>
+        </div>
+
+        <!-- ЗАКУСКИ -->
+        <div class="menu-item-main" onclick="toggleSubmenu('snacks-submenu')">ЗАКУСКИ</div>
+        <div id="snacks-submenu" class="submenu">
+            <a href="#snacks">СУХАРИКИ</a>
+            <a href="#snacks">ГРЕНКИ</a>
+            <a href="#snacks">ФИСТАШКИ</a>
+            <a href="#snacks">ЧИПСЫ ЛЕЙС</a>
+            <a href="#snacks">ПРИНГЛС</a>
+            <a href="#snacks">КАЛЬМАР</a>
+            <a href="#snacks">ПОЛОСАТИК</a>
+            <a href="#snacks">АРАХИС</a>
+        </div>
+
+        <!-- СЛАДКИЕ СНЕКИ -->
+        <div class="menu-item-main" onclick="toggleSubmenu('sweet-submenu')">СЛАДКИЕ СНЕКИ</div>
+        <div id="sweet-submenu" class="submenu">
+            <a href="#sweet">СНИКЕРС</a>
+            <a href="#sweet">БАУНТИ</a>
+            <a href="#sweet">ТВИКС</a>
+            <a href="#sweet">КИТКАТ</a>
+        </div>
+
+        <!-- НОВЫЙ ПУНКТ: КУХНЯ (пока пустой) -->
+        <div class="menu-item-main" onclick="toggleSubmenu('kitchen-submenu')">КУХНЯ</div>
+        <div id="kitchen-submenu" class="submenu">
+            <!-- Пока пусто, можно добавить позже -->
+        </div>
+
+        <!-- НОВЫЙ ПУНКТ: БАР (включает алкоголь) -->
+        <div class="menu-item-main" onclick="toggleSubmenu('bar-submenu')">БАР</div>
+        <div id="bar-submenu" class="submenu">
+            <a href="#alcohol">BALNC</a>
+            <a href="#alcohol">SPATEN</a>
+            <a href="#alcohol">KOZEL</a>
+            <a href="#alcohol">HUUGARDEN</a>
+            <a href="#alcohol">CHESTER</a>
+            <a href="#coffee">ЛАТТЕ</a>
+            <a href="#coffee">КАПУЧИНО</a>
+            <a href="#coffee">ЭСПРЕССО</a>
+            <a href="#soda">COCA-COLA</a>
+            <a href="#soda">FANTA</a>
+            <a href="#soda">SPRITE</a>
+            <a href="#soda">ADRENALIN</a>
+            <a href="#soda">BURN</a>
+            <a href="#soda">СОКИ</a>
+            <a href="#soda">ВОДА</a>
+            <a href="#soda">АВТОРСКИЙ ЛИМОНАД</a>
+            <a href="#soda">ФРЕШ</a>
+            <a href="#lemonade">МАНГОВЫЙ ЛИМОНАД</a>
+            <a href="#lemonade">АПЕЛЬСИНОВЫЙ</a>
+            <a href="#lemonade">КОКОСОВЫЙ</a>
+            <a href="#lemonade">ПИНА КОЛАДА</a>
+            <a href="#lemonade">МАРАКУЙЯ</a>
+            <a href="#lemonade">ГРАНАТ</a>
+            <a href="#lemonade">МАЛИНА</a>
+            <a href="#lemonade">ВИШНЯ</a>
+            <a href="#tea">ГЛИНТВЕЙН</a>
+            <a href="#tea">ОБЛЕПИХА</a>
+            <a href="#tea">ГАБА</a>
+            <a href="#tea">МОЛОЧНЫЙ УЛУН</a>
+            <a href="#tea">ТЕ ГУАНЬ ИНЬ</a>
+            <a href="#tea">ПУЭР</a>
+            <a href="#tea">КАРКАДЕ</a>
+            <a href="#tea">ВИШНЕВЫЙ ЧАЙ</a>
+            <a href="#tea">МАНГОВЫЙ ЧАЙ</a>
+            <a href="#tea">ЯГОДНЫЙ ЧАЙ</a>
+            <a href="#tea">ЖАСМИНОВЫЙ ЧАЙ</a>
+        </div>
+
+        <!-- МОЛОЧНЫЕ КОКТЕЙЛИ -->
+        <div class="menu-item-main" onclick="toggleSubmenu('milkshakes-submenu')">МОЛОЧНЫЕ КОКТЕЙЛИ</div>
+        <div id="milkshakes-submenu" class="submenu">
+            <a href="#milkshakes">СНИКЕРС</a>
+            <a href="#milkshakes">ОРЕО</a>
+            <a href="#milkshakes">БАУНТИ</a>
+        </div>
+
+        <!-- РАЗВЛЕЧЕНИЯ -->
+        <div class="menu-item-main" onclick="toggleSubmenu('entertainment-submenu')">РАЗВЛЕЧЕНИЯ</div>
+        <div id="entertainment-submenu" class="submenu">
+            <a href="#entertainment">PS 4 / PS 5</a>
+            <a href="#entertainment">БИЛЬЯРД</a>
+            <a href="#entertainment">КАРАОКЕ</a>
+        </div>
+
+        <!-- АРЕНДА ЛОФТА ПОЛНОСТЬЮ УДАЛЕНА -->
+    </div>
+
+    <!-- ========== ХЕДЕР ========== -->
+    <div class="new-header">
+        <div class="header-content">
+            <a href="/" class="logo-link">
+                <img src="{% static 'main/images/headder.png' %}" alt="Почилим" loading="lazy">
+            </a>
+            <div class="pochilim-text">POCHILIM</div>
+            <div class="pochilim-subtitle">ПОЛНОЕ МЕНЮ</div>
+        </div>
+    </div>
+
+    <!-- ========== ОСНОВНОЙ КОНТЕНТ ========== -->
+    <div class="container">
+        <h1>НАШЕ МЕНЮ</h1>
+        <div class="menu-subtitle">ВСЁ ДЛЯ ИДЕАЛЬНОГО ОТДЫХА</div>
+        
+        <!-- Навигация по категориям -->
+        <div class="categories-wrapper">
+            <div class="categories-scroll">
+                <div class="category-btn active" onclick="filterCategory('all')">ВСЁ МЕНЮ</div>
+                <div class="category-btn" onclick="filterCategory('hookah')">КАЛЬЯНЫ</div>
+                <div class="category-btn" onclick="filterCategory('snack')">ЗАКУСКИ</div>
+                <div class="category-btn" onclick="filterCategory('sweet')">СЛАДКИЕ СНЕКИ</div>
+                <div class="category-btn" onclick="filterCategory('alcohol')">АЛКОГОЛЬ</div>
+                <div class="category-btn" onclick="filterCategory('lemonade')">ЛИМОНАДЫ</div>
+                <div class="category-btn" onclick="filterCategory('coffee')">КОФЕ</div>
+                <div class="category-btn" onclick="filterCategory('tea')">ЧАЙ</div>
+                <div class="category-btn" onclick="filterCategory('soda')">БА НАПИТКИ</div>
+                <div class="category-btn" onclick="filterCategory('milkshake')">МОЛОЧНЫЕ</div>
+                <div class="category-btn" onclick="filterCategory('entertainment')">РАЗВЛЕЧЕНИЯ</div>
+            </div>
+        </div>
+
+        <!-- КАЛЬЯНЫ -->
+        <div class="menu-section" id="hookahs" data-category="hookah">
+            <div class="section-title">КАЛЬЯНЫ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА КАПСУЛЕ</span><span class="menu-item-price">{{ prices.На_капсуле|default:"1200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">2 КАЛЬЯНА</span><span class="menu-item-price">{{ prices.2_кальяна|default:"2200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПРЕМИУМ</span><span class="menu-item-price">{{ prices.Премиум|default:"1800" }}₽</span></div><div class="menu-item-description">ТАБАК ПРЕМИУМ-КЛАССА</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА МОЛОКЕ</span><span class="menu-item-price">{{ prices.На_молоке|default:"1400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АВТОРСКИЙ</span><span class="menu-item-price">{{ prices.Авторский|default:"1500" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА ГРЕЙПФРУТЕ</span><span class="menu-item-price">{{ prices.На_грейпфруте|default:"1600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА АНАНАСЕ</span><span class="menu-item-price">{{ prices.На_ананасе|default:"1600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА ГРАНАТЕ</span><span class="menu-item-price">{{ prices.На_гранате|default:"1600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПАРФЮМИРОВАННЫЙ</span><span class="menu-item-price">{{ prices.Парфюмированный|default:"1700" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МИКС</span><span class="menu-item-price">{{ prices.Микс|default:"1500" }}₽</span></div><div class="menu-item-description">СМЕСЬ ИЗ 2-3 ВКУСОВ</div></div>
+            </div>
+        </div>
+
+        <!-- ЗАКУСКИ -->
+        <div class="menu-section" id="snacks" data-category="snack">
+            <div class="section-title">ЗАКУСКИ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СУХАРИКИ</span><span class="menu-item-price">{{ prices.Сухарики|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГРЕНКИ</span><span class="menu-item-price">{{ prices.Гренки|default:"180" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФИСТАШКИ</span><span class="menu-item-price">{{ prices.Фисташки|default:"250" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЧИПСЫ ЛЕЙС</span><span class="menu-item-price">{{ prices.Чипсы_Лейс|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПРИНГЛС</span><span class="menu-item-price">{{ prices.Принглс|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАЛЬМАР</span><span class="menu-item-price">{{ prices.Кальмар|default:"280" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПОЛОСАТИК</span><span class="menu-item-price">{{ prices.Полосатик|default:"180" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АРАХИС</span><span class="menu-item-price">{{ prices.Арахис|default:"150" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- СЛАДКИЕ СНЕКИ -->
+        <div class="menu-section" id="sweet" data-category="sweet">
+            <div class="section-title">СЛАДКИЕ СНЕКИ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СНИКЕРС</span><span class="menu-item-price">{{ prices.Сникерс|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.Баунти|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТВИКС</span><span class="menu-item-price">{{ prices.Твикс|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КИТКАТ</span><span class="menu-item-price">{{ prices.КитКат|default:"150" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- АЛКОГОЛЬ -->
+        <div class="menu-section" id="alcohol" data-category="alcohol">
+            <div class="section-title">АЛКОГОЛЬ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">BALNC</span><span class="menu-item-price">{{ prices.Balnc|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">SPATEN</span><span class="menu-item-price">{{ prices.Spaten|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">KOZEL</span><span class="menu-item-price">{{ prices.Kozel|default:"300" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">HUUGARDEN</span><span class="menu-item-price">{{ prices.Huugarden|default:"400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">CHESTER</span><span class="menu-item-price">{{ prices.Chester|default:"380" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ЛИМОНАДЫ -->
+        <div class="menu-section" id="lemonade" data-category="lemonade">
+            <div class="section-title">ЛИМОНАДЫ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНГОВЫЙ</span><span class="menu-item-price">{{ prices.Манговый|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АПЕЛЬСИНОВЫЙ</span><span class="menu-item-price">{{ prices.Апельсиновый|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КОКОСОВЫЙ</span><span class="menu-item-price">{{ prices.Кокосовый|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПИНА КОЛАДА</span><span class="menu-item-price">{{ prices.Пина_Колада|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАРАКУЙЯ</span><span class="menu-item-price">{{ prices.Маракуйя|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГРАНАТ</span><span class="menu-item-price">{{ prices.Гранат|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАЛИНА</span><span class="menu-item-price">{{ prices.Малина|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВИШНЯ</span><span class="menu-item-price">{{ prices.Вишня|default:"350" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- КОФЕ -->
+        <div class="menu-section" id="coffee" data-category="coffee">
+            <div class="section-title">КОФЕ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛАТТЕ</span><span class="menu-item-price">{{ prices.Латте|default:"250" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАПУЧИНО</span><span class="menu-item-price">{{ prices.Капучино|default:"250" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЭСПРЕССО</span><span class="menu-item-price">{{ prices.Эспрессо|default:"180" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ЧАЙ -->
+        <div class="menu-section" id="tea" data-category="tea">
+            <div class="section-title">ЧАЙ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГЛИНТВЕЙН</span><span class="menu-item-price">{{ prices.Глинтвейн|default:"450" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОБЛЕПИХА</span><span class="menu-item-price">{{ prices.Облепиха|default:"400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГАБА</span><span class="menu-item-price">{{ prices.Габа|default:"500" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МОЛОЧНЫЙ УЛУН</span><span class="menu-item-price">{{ prices.Молочный_улун|default:"450" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТЕ ГУАНЬ ИНЬ</span><span class="menu-item-price">{{ prices.Те_Гуань_Инь|default:"550" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПУЭР</span><span class="menu-item-price">{{ prices.Пуэр|default:"500" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРКАДЕ</span><span class="menu-item-price">{{ prices.Каркаде|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВИШНЕВЫЙ</span><span class="menu-item-price">{{ prices.Вишневый|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНГОВЫЙ</span><span class="menu-item-price">{{ prices.Манговый|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЯГОДНЫЙ</span><span class="menu-item-price">{{ prices.Ягодный|default:"400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЖАСМИНОВЫЙ</span><span class="menu-item-price">{{ prices.Жасминовый|default:"400" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- БА НАПИТКИ -->
+        <div class="menu-section" id="soda" data-category="soda">
+            <div class="section-title">БА НАПИТКИ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">COCA-COLA</span><span class="menu-item-price">{{ prices.Coca_Cola|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">FANTA</span><span class="menu-item-price">{{ prices.Fanta|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">SPRITE</span><span class="menu-item-price">{{ prices.Sprite|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ADRENALIN</span><span class="menu-item-price">{{ prices.Adrenalin|default:"220" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">BURN</span><span class="menu-item-price">{{ prices.Burn|default:"220" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СОКИ</span><span class="menu-item-price">{{ prices.Соки|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВОДА</span><span class="menu-item-price">{{ prices.Вода|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АВТОРСКИЙ ЛИМОНАД</span><span class="menu-item-price">{{ prices.Авторский_лимонад|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФРЕШ</span><span class="menu-item-price">{{ prices.Фреш|default:"400" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- МОЛОЧНЫЕ КОКТЕЙЛИ -->
+        <div class="menu-section" id="milkshakes" data-category="milkshake">
+            <div class="section-title">МОЛОЧНЫЕ КОКТЕЙЛИ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СНИКЕРС</span><span class="menu-item-price">{{ prices.Сникерс|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОРЕО</span><span class="menu-item-price">{{ prices.Орео|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.Баунти|default:"380" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- РАЗВЛЕЧЕНИЯ -->
+        <div class="menu-section" id="entertainment" data-category="entertainment">
+            <div class="section-title">РАЗВЛЕЧЕНИЯ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">PS 4 / PS 5</span><span class="menu-item-price">{{ prices.Playstation|default:"800" }}₽/ЧАС</span></div><div class="menu-item-description">FIFA, NHL, MORTAL KOMBAT</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БИЛЬЯРД</span><span class="menu-item-price">{{ prices.Бильярд|default:"1000" }}₽/ЧАС</span></div><div class="menu-item-description">РУССКИЙ БИЛЬЯРД</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРАОКЕ</span><span class="menu-item-price">{{ prices.Караоке|default:"2000" }}₽/ЧАС</span></div><div class="menu-item-description">ПРОФЕССИОНАЛЬНАЯ АКУСТИКА</div></div>
+            </div>
+        </div>
+
+        <!-- АРЕНДА ЛОФТА ПОЛНОСТЬЮ УДАЛЕНА -->
+
+        <!-- НОВАЯ КНОПКА БРОНИРОВАНИЯ -->
+        <div class="booking-wrapper">
+            <a href="tel:+79026984414" class="booking-button" onclick="alert('+7 (902) 698-44-14')">
+                <div class="button-inner">
+                    <div class="button-icon">
+                        <span>📞</span>
+                    </div>
+                    <span class="button-text">ЗАБРОНИРОВАТЬ</span>
+                    <span class="button-phone">+7 (902) 698 - 44 - 14</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- РЕЖИМ РАБОТЫ -->
+        <div class="schedule-block">
+            <p style="font-size: 32px;">ВРЕМЯ РАБОТЫ</p>
+            <p><strong>БУДНИ:</strong> 14:00 - 01:00</p>
+            <p><strong>ПЯТНИЦА И ВЫХОДНЫЕ:</strong> 14:00 - 03:00</p>
+        </div>
+    </div>
+
+    <!-- ========== ФУТТЕР ========== -->
+    <div class="footer">
+        <div class="footer-oval">
+            <a href="/" class="footer-logo-link">
+                <img src="{% static 'main/images/headder.png' %}" alt="Почилим" loading="lazy">
+            </a>
+            <div class="footer-title">ПОЧИЛИМ</div>
+            <p>КУЛИКОВСКАЯ 5, СЕВЕРНОЕ БУТОВО</p>
+            <p>+7 (902) 698-44-14</p>
+            
+            <!-- ПЯТЬ СОЦИАЛЬНЫХ КНОПОК -->
+            <div class="social-buttons">
+                <a href="https://t.me/chillbutovo" target="_blank" class="social-btn telegram">
+                    <img src="{% static 'main/images/TelegramLink.png' %}" alt="Telegram" class="social-icon-img" loading="lazy">
+                    <span class="social-tooltip">TELEGRAM</span>
+                </a>
+                <a href="https://www.tiktok.com/@pochilim5?_r=1&_t=ZS-93vTN2Ba5lE" target="_blank" class="social-btn tiktok">
+                    <img src="{% static 'main/images/TikTokLink.png' %}" alt="TikTok" class="social-icon-img" loading="lazy">
+                    <span class="social-tooltip">TIKTOK</span>
+                </a>
+                <a href="https://instagram.com/pochilim" target="_blank" class="social-btn instagram">
+                    <img src="{% static 'main/images/InstagramLink.png' %}" alt="Instagram" class="social-icon-img" loading="lazy">
+                    <span class="social-tooltip">INSTAGRAM</span>
+                </a>
+                <a href="https://vk.ru/havechill" target="_blank" class="social-btn vk">
+                    <img src="{% static 'main/images/vcicon.png' %}" alt="VK" class="social-icon-img" loading="lazy">
+                    <span class="social-tooltip">VK</span>
+                </a>
+                <a href="https://www.avito.ru/user/..." target="_blank" class="social-btn avito">
+                    <img src="{% static 'main/images/avito-logo.png' %}" alt="Avito" class="social-icon-img" loading="lazy">
+                    <span class="social-tooltip">AVITO</span>
+                </a>
+            </div>
+            <p class="copyright">© 2026 ПОЧИЛИМ. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu-toggle').classList.toggle('active');
+            document.getElementById('dropdownMenu').classList.toggle('active');
+            
+            if (document.getElementById('dropdownMenu').classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('dropdownMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                document.querySelectorAll('.submenu').forEach(sub => {
+                    sub.classList.remove('active');
+                });
+            }
+        });
+
+        function toggleSubmenu(submenuId) {
+            const submenu = document.getElementById(submenuId);
+            
+            document.querySelectorAll('.submenu').forEach(sub => {
+                if (sub.id !== submenuId) {
+                    sub.classList.remove('active');
+                }
+            });
+            
+            submenu.classList.toggle('active');
+        }
+
+        function filterCategory(category) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            if (category === 'all') {
+                document.querySelectorAll('.menu-section').forEach(section => {
+                    section.style.display = 'block';
+                });
+            } else {
+                document.querySelectorAll('.menu-section').forEach(section => {
+                    if (section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.getElementById('dropdownMenu').classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                document.querySelectorAll('.submenu').forEach(sub => {
+                    sub.classList.remove('active');
+                });
+            });
+        });
+
+        document.querySelectorAll('.menu-item-main').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
