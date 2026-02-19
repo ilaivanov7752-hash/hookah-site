@@ -772,27 +772,6 @@
             transition: all 0.3s ease;
         }
 
-        .button-phone.revealed {
-            background: rgba(255, 255, 255, 0.3);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        @keyframes phoneReveal {
-            0% {
-                opacity: 0;
-                transform: translateX(20px) scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-        }
-
         /* Адаптация для мобильных */
         @media (max-width: 768px) {
             .booking-button {
@@ -1342,19 +1321,19 @@
 
         <!-- ========== КНОПКА БРОНИРОВАНИЯ ========== -->
         <div class="booking-wrapper">
-            <div class="booking-button" onclick="revealPhone()" id="bookingBtn">
+            <a href="tel:+79026984414" class="booking-button">
                 <div class="button-content">
-                    <span class="button-icon"></span>
+                    <span class="button-icon">📞</span>
                     <span class="button-text">ЗАБРОНИРОВАТЬ</span>
-                    <span class="button-phone" id="phoneNumber">ПОКАЗАТЬ</span>
+                    <span class="button-phone">+7 (902) 698 44 14</span>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="schedule-block">
             <p style="font-size: 32px;">ВРЕМЯ РАБОТЫ</p>
-            <p><strong>Будни:</strong> 14:00 - 01:00</p>
-            <p><strong>Пятница и выходные:</strong> 14:00 - 03:00</p>
+            <p><strong>Будни:</strong> 15:00 - 00:00</p>
+            <p><strong>Пятница и выходные:</strong> 15:00 - 03:00</p>
         </div>
     </div>
 
@@ -1383,11 +1362,11 @@
                     <span class="social-tooltip">Instagram</span>
                 </a>
                 <a href="https://vk.com/havechill" target="_blank" class="social-btn vk">
-                    <img src="{% static 'main/images/vk-icon.png' %}" alt="VK" class="social-icon-img">
+                    <img src="{% static 'main/images/vcicon.png' %}" alt="VK" class="social-icon-img">
                     <span class="social-tooltip">VK</span>
                 </a>
                 <a href="https://www.avito.ru/user/..." target="_blank" class="social-btn avito">
-                    <img src="{% static 'main/images/avito-icon.png' %}" alt="Avito" class="social-icon-img">
+                    <img src="{% static 'main/images/avito-logo.png' %}" alt="Avito" class="social-icon-img">
                     <span class="social-tooltip">Avito</span>
                 </a>
             </div>
@@ -1443,28 +1422,6 @@
                 toggle.classList.remove('active');
             }
         });
-
-        function revealPhone() {
-            const phoneElement = document.getElementById('phoneNumber');
-            
-            if (phoneElement.textContent.includes('+7 (902) 698 44 14')) {
-                return;
-            }
-            
-            phoneElement.textContent = '+7 (902) 698 44 14';
-            phoneElement.classList.add('revealed');
-            phoneElement.style.animation = 'phoneReveal 0.5s ease';
-            
-            const button = document.getElementById('bookingBtn');
-            button.style.transform = 'scale(0.97)';
-            setTimeout(() => {
-                button.style.transform = '';
-            }, 200);
-            
-            setTimeout(() => {
-                phoneElement.style.animation = '';
-            }, 500);
-        }
 
         document.querySelectorAll('.dropdown-menu a').forEach(link => {
             link.addEventListener('click', function() {

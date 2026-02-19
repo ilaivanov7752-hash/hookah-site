@@ -4,7 +4,7 @@
 <head>
     <title>Меню - Почилим</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
     <style>
         /* ========== ПОДКЛЮЧЕНИЕ ШРИФТОВ ========== */
@@ -14,12 +14,14 @@
         /* ========== ОСНОВНОЙ ФОН ========== */
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Montserrat', sans-serif;
             color: #1a3b3a;
             background: linear-gradient(135deg, #0abab5 0%, #1a3b3a 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* ========== ПАДАЮЩИЕ КАЛЬЯНЫ ========== */
@@ -31,7 +33,7 @@
             height: 120%;
             z-index: 9999;
             pointer-events: none;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         .hookah-container {
@@ -45,7 +47,7 @@
 
         @keyframes fall {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
+            10% { opacity: 0.5; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
@@ -60,19 +62,21 @@
         /* ========== ХЕДЕР ========== */
         .new-header {
             background: rgba(255, 255, 255, 0.95);
-            padding: 40px 20px 30px;
-            margin-bottom: 30px;
-            border-bottom-left-radius: 60px;
-            border-bottom-right-radius: 60px;
-            box-shadow: 0 15px 35px rgba(0, 100, 100, 0.2);
+            padding: 30px 15px 20px;
+            margin-bottom: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: 0 10px 25px rgba(0, 100, 100, 0.2);
             position: relative;
             z-index: 100;
             border-bottom: 3px solid rgba(10, 186, 181, 0.3);
             text-align: center;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .header-content {
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -82,20 +86,14 @@
 
         .logo-link {
             display: block;
-            width: 180px;
-            height: 180px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.5);
-            border: 5px solid white;
+            box-shadow: 0 15px 30px rgba(10, 186, 181, 0.5);
+            border: 4px solid white;
             transition: 0.3s;
-            margin: 0 auto 20px auto;
-        }
-
-        .logo-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(10, 186, 181, 0.7);
-            border-color: #0abab5;
+            margin: 0 auto 15px auto;
         }
 
         .logo-link img {
@@ -107,136 +105,124 @@
 
         .pochilim-text {
             font-family: 'Rubik Marker Hatch', cursive;
-            font-size: 72px;
-            font-weight: 400;
-            margin: 10px 0 5px;
+            font-size: 48px;
+            margin: 5px 0 3px;
             color: #1a3b3a;
-            text-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
         }
 
         .pochilim-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 300;
+            font-size: 16px;
+            letter-spacing: 3px;
             margin: 5px 0 0;
             color: #1a3b3a;
-            letter-spacing: 6px;
-            text-transform: uppercase;
             opacity: 0.8;
         }
 
-        /* ========== КОНТЕЙНЕР ========== */
+        /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
         .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px 12px;
             position: relative;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            background: transparent;
+            backdrop-filter: none;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            box-sizing: border-box;
         }
 
         h1 {
             text-align: center;
-            font-size: 48px;
+            font-size: 32px;
             color: white;
-            margin-bottom: 20px;
+            margin: 10px 0 10px;
             text-shadow: 0 0 10px rgba(255,255,255,0.5);
-            font-weight: 600;
-            letter-spacing: 2px;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .menu-subtitle {
             text-align: center;
-            font-size: 24px;
+            font-size: 16px;
             color: white;
-            margin-bottom: 40px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             font-weight: 300;
             font-style: italic;
-            text-transform: uppercase;
         }
 
         /* ========== КАТЕГОРИИ МЕНЮ ========== */
         .categories-wrapper {
             position: sticky;
-            top: 20px;
+            top: 10px;
             z-index: 1000;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
+            width: 100%;
         }
 
         .categories-scroll {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             overflow-x: auto;
-            padding: 10px 5px 20px;
+            padding: 5px 0 15px;
             scrollbar-width: thin;
             scrollbar-color: #0abab5 rgba(255,255,255,0.3);
             -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            width: 100%;
         }
 
         .categories-scroll::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .categories-scroll::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.3);
-            border-radius: 10px;
-        }
-
-        .categories-scroll::-webkit-scrollbar-thumb {
-            background: #0abab5;
-            border-radius: 10px;
+            height: 4px;
         }
 
         .category-btn {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 10px 18px;
+            border-radius: 40px;
             color: #1a3b3a;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
             border: 2px solid rgba(10, 186, 181, 0.3);
             white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             text-transform: uppercase;
+            scroll-snap-align: start;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .category-btn:hover,
         .category-btn.active {
             background: #0abab5;
             color: white;
             border-color: white;
-            transform: scale(1.05);
         }
 
         /* ========== СЕКЦИИ МЕНЮ ========== */
         .menu-section {
-            margin-bottom: 60px;
-            scroll-margin-top: 100px;
+            margin-bottom: 40px;
+            scroll-margin-top: 80px;
+            width: 100%;
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 26px;
             color: white;
             text-align: center;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
             font-weight: 600;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .section-title:after {
@@ -245,235 +231,196 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
+            width: 60px;
+            height: 2px;
             background: white;
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
+        /* ========== СЕТКА МЕНЮ ========== */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         /* ========== КАРТОЧКИ МЕНЮ ========== */
         .menu-item {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 15px 20px;
             border: 2px solid rgba(255, 255, 255, 0.8);
             position: relative;
             backdrop-filter: blur(5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-            border-color: #0abab5;
-            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
         }
 
         .menu-item-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 2px dashed rgba(10, 186, 181, 0.3);
+            width: 100%;
+            gap: 15px;
         }
 
         .menu-item-title {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             color: #1a3b3a;
-            display: flex;
-            align-items: center;
-            gap: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        /* Убираем зеленые кружочки */
-        .item-icon {
-            display: none;
+            word-break: break-word;
+            flex: 1;
         }
 
         .menu-item-price {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 900;
             color: #0abab5;
+            white-space: nowrap;
+            text-align: right;
+            min-width: 70px;
+            flex-shrink: 0;
         }
 
         .menu-item-description {
-            font-size: 14px;
+            font-size: 12px;
             color: #4a5a5a;
-            margin-bottom: 10px;
-            line-height: 1.5;
-            padding-left: 0;
+            margin-top: 8px;
+            line-height: 1.4;
             text-transform: uppercase;
             letter-spacing: 0.3px;
         }
 
-        /* ========== НОВАЯ КНОПКА БРОНИРОВАНИЯ ========== */
+        /* ========== КНОПКА БРОНИРОВАНИЯ ========== */
         .booking-wrapper {
             text-align: center;
-            margin: 40px 0 20px;
+            margin: 60px 0 20px;
+            width: 100%;
         }
 
         .booking-button {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             background: linear-gradient(135deg, #1a3b3a, #0a5f5a);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 100px;
-            padding: 4px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 60px;
+            padding: 16px 35px;
             cursor: pointer;
             transition: all 0.3s ease;
-            max-width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 auto;
+            max-width: 100%;
+            width: auto;
+            min-width: 280px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         .booking-button:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.5);
-            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(10, 186, 181, 0.5);
+            border-color: white;
+            animation: none;
         }
 
-        .button-inner {
-            display: flex;
-            align-items: center;
-            background: white;
-            border-radius: 100px;
-            padding: 8px 8px 8px 25px;
-            width: 100%;
+        .booking-button:active {
+            transform: translateY(0) scale(0.98);
         }
 
-        .button-icon {
-            background: linear-gradient(135deg, #0abab5, #1a3b3a);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+        .button-content {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            box-shadow: 0 5px 15px rgba(10, 186, 181, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .booking-button:hover .button-icon {
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        .button-icon span {
-            font-size: 24px;
+            gap: 12px;
             color: white;
         }
 
+        .button-icon {
+            font-size: 24px;
+            line-height: 1;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
         .button-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
             font-size: 20px;
-            color: #1a3b3a;
-            margin-right: 20px;
-            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1px;
+            text-transform: uppercase;
             white-space: nowrap;
         }
 
         .button-phone {
-            background: linear-gradient(135deg, #1a3b3a, #0a5f5a);
-            border-radius: 100px;
-            padding: 12px 25px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
             font-size: 18px;
-            color: white;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(10, 186, 181, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 40px;
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
 
-        .booking-button:hover .button-phone {
-            background: linear-gradient(135deg, #0abab5, #1a3b3a);
-        }
-
         @media (max-width: 768px) {
-            .button-inner {
-                padding: 6px 6px 6px 20px;
+            .booking-button {
+                padding: 14px 25px;
+                min-width: 250px;
             }
-            
-            .button-icon {
-                width: 40px;
-                height: 40px;
-                margin-right: 12px;
-            }
-            
-            .button-icon span {
-                font-size: 20px;
-            }
-            
-            .button-text {
-                font-size: 16px;
-                margin-right: 15px;
-            }
-            
-            .button-phone {
-                padding: 10px 18px;
-                font-size: 14px;
-            }
+            .button-icon { font-size: 22px; }
+            .button-text { font-size: 18px; }
+            .button-phone { font-size: 16px; padding: 6px 15px; }
         }
 
         @media (max-width: 480px) {
             .booking-button {
-                width: 100%;
+                padding: 12px 20px;
+                min-width: 220px;
             }
-            
-            .button-inner {
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 15px;
-            }
-            
-            .button-icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .button-text {
-                margin-right: 0;
-                margin-bottom: 10px;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .button-phone {
-                width: 100%;
-                text-align: center;
-            }
+            .button-content { gap: 8px; }
+            .button-icon { font-size: 20px; }
+            .button-text { font-size: 16px; }
+            .button-phone { font-size: 14px; padding: 5px 12px; }
         }
 
         /* ========== РЕЖИМ РАБОТЫ ========== */
         .schedule-block {
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(8px);
-            padding: 40px;
-            border-radius: 40px;
+            padding: 25px 15px;
+            border-radius: 30px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
             border: 2px solid rgba(255, 255, 255, 0.4);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .schedule-block p {
-            margin: 15px 0;
-            font-size: 22px;
+            margin: 8px 0;
+            font-size: 16px;
             color: white;
             font-weight: 500;
             text-transform: uppercase;
+        }
+
+        .schedule-block p:first-child {
+            font-size: 22px;
+            margin-bottom: 15px;
         }
 
         .schedule-block strong {
@@ -486,39 +433,36 @@
 
         /* ========== ФУТТЕР ========== */
         .footer {
-            padding: 40px 20px 60px;
-            margin-top: 60px;
-            position: relative;
-            z-index: 100;
+            padding: 30px 15px 40px;
+            margin-top: 40px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .footer-oval {
             background: rgba(255, 255, 255, 0.95);
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 40px;
-            border-radius: 200px 200px 100px 100px;
-            box-shadow: 0 -15px 35px rgba(10, 186, 181, 0.25);
-            border: 3px solid rgba(10, 186, 181, 0.3);
+            max-width: 100%;
+            margin: 0;
+            padding: 30px 20px;
+            border-radius: 50px 50px 0 0;
+            box-shadow: 0 -10px 25px rgba(10, 186, 181, 0.25);
+            border: 2px solid rgba(10, 186, 181, 0.3);
             text-align: center;
             backdrop-filter: blur(5px);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .footer-logo-link {
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             box-shadow: 0 15px 35px rgba(10, 186, 181, 0.4);
             border: 3px solid white;
             transition: 0.3s;
-        }
-
-        .footer-logo-link:hover {
-            transform: scale(1.05);
-            border-color: #0abab5;
         }
 
         .footer-logo-link img {
@@ -530,16 +474,15 @@
 
         .footer-title {
             font-family: 'Rubik Marker Hatch', cursive;
-            font-size: 36px;
-            font-weight: 400;
+            font-size: 24px;
             margin-bottom: 15px;
             color: #0abab5;
             text-transform: uppercase;
         }
 
         .footer p {
-            margin: 10px 0;
-            font-size: 18px;
+            margin: 5px 0;
+            font-size: 14px;
             color: #1a3b3a;
             text-transform: uppercase;
         }
@@ -548,110 +491,71 @@
         .social-buttons {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin: 30px 0 20px;
+            gap: 12px;
+            margin: 20px 0 15px;
             flex-wrap: wrap;
         }
 
         .social-btn {
-            width: 65px;
-            height: 65px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: 0.3s;
-            border: 3px solid #0abab5;
+            transition: 0.2s;
+            border: 2px solid #0abab5;
             overflow: hidden;
             position: relative;
-        }
-
-        .social-btn:hover {
-            transform: scale(1.15) translateY(-5px);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .social-icon-img {
-            width: 35px;
-            height: 35px;
+            width: 25px;
+            height: 25px;
             object-fit: contain;
         }
 
         .social-tooltip {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1a3b3a;
-            color: white;
-            font-size: 14px;
-            padding: 5px 12px;
-            border-radius: 30px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-            border: 2px solid #0abab5;
-            text-transform: uppercase;
+            display: none;
         }
 
-        .social-btn:hover .social-tooltip {
-            opacity: 1;
-            visibility: visible;
-            bottom: -45px;
+        .copyright {
+            margin-top: 15px;
+            font-size: 12px;
         }
-
-        .social-btn.telegram:hover { background: #0088cc; border-color: white; }
-        .social-btn.tiktok:hover { background: #000000; border-color: #00f2ea; }
-        .social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #d62976, #962fbf); border-color: white; }
-        .social-btn.vk:hover { background: #4c75a3; border-color: white; }
-        .social-btn.avito:hover { background: #d33b3b; border-color: white; }
 
         /* ========== БУРГЕР-МЕНЮ ========== */
         .menu-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
+            top: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
             background: white;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             z-index: 10000;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            border: 3px solid #0abab5;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle:hover {
-            transform: scale(1.1);
-            background: #0abab5;
-        }
-
-        .menu-toggle:hover span {
-            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid #0abab5;
+            transition: all 0.2s ease;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
         .menu-toggle span {
-            width: 30px;
-            height: 4px;
+            width: 25px;
+            height: 3px;
             background: #0abab5;
-            border-radius: 4px;
+            border-radius: 3px;
             transition: 0.3s;
-        }
-
-        .menu-toggle.active {
-            background: #0abab5;
-        }
-
-        .menu-toggle.active span {
-            background: white;
         }
 
         .menu-toggle.active span:nth-child(1) {
@@ -669,18 +573,18 @@
 
         .dropdown-menu {
             position: fixed;
-            top: 100px;
-            right: 20px;
+            top: 80px;
+            right: 15px;
             background: white;
-            border-radius: 25px;
-            padding: 25px 0;
-            min-width: 320px;
+            border-radius: 20px;
+            padding: 15px 0;
+            min-width: 280px;
             max-width: 90vw;
             z-index: 10000;
             transform: translateX(150%);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 3px solid #0abab5;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #0abab5;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             max-height: 80vh;
             overflow-y: auto;
         }
@@ -689,61 +593,28 @@
             transform: translateX(0);
         }
 
-        .dropdown-menu > a {
-            color: #1a3b3a;
-            text-decoration: none;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: 700;
-            display: block;
-            border-bottom: 2px solid rgba(10, 186, 181, 0.2);
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dropdown-menu > a:hover {
-            background: rgba(10, 186, 181, 0.1);
-            padding-left: 40px;
-            color: #0abab5;
-        }
-
-        .dropdown-menu > a:last-child {
-            border-bottom: none;
-        }
-
+        .dropdown-menu > a,
         .menu-item-main {
             color: #1a3b3a;
-            padding: 15px 30px;
-            font-size: 20px;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
             font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid rgba(10, 186, 181, 0.2);
-            transition: 0.3s;
+            display: block;
+            border-bottom: 1px solid rgba(10, 186, 181, 0.2);
+            transition: 0.2s;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             cursor: pointer;
-            letter-spacing: 1px;
-        }
-
-        .menu-item-main:hover {
-            background: rgba(10, 186, 181, 0.1);
-            padding-left: 40px;
-            color: #0abab5;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .menu-item-main:after {
             content: '▼';
-            font-size: 14px;
+            font-size: 12px;
             color: #0abab5;
+            float: right;
             transition: 0.3s;
-            margin-left: 10px;
-        }
-
-        .menu-item-main:hover:after {
-            color: #0abab5;
-            transform: rotate(180deg);
         }
 
         .submenu {
@@ -752,73 +623,55 @@
             margin: 0;
             background: rgba(10, 186, 181, 0.05);
             display: none;
-            border-bottom: 2px solid rgba(10, 186, 181, 0.2);
+            border-bottom: 1px solid rgba(10, 186, 181, 0.2);
         }
 
         .submenu.active {
             display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .submenu a {
             display: block;
             color: #4a5a5a;
             text-decoration: none;
-            padding: 12px 30px 12px 50px;
-            font-size: 18px;
+            padding: 10px 20px 10px 35px;
+            font-size: 14px;
             border-bottom: 1px solid rgba(10, 186, 181, 0.1);
-            transition: 0.3s;
+            transition: 0.2s;
             text-transform: uppercase;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .submenu a:hover {
-            background: rgba(10, 186, 181, 0.1);
-            padding-left: 60px;
-            color: #0abab5;
+        @media (min-width: 768px) {
+            .container { padding: 30px 20px; }
+            .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
         }
 
-        .submenu a:last-child {
-            border-bottom: none;
-        }
-
-        @media (max-width: 768px) {
-            .menu-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 28px; }
-            .pochilim-text { font-size: 48px; }
-            .dropdown-menu {
-                top: 90px;
-                min-width: 280px;
-            }
+        @media (min-width: 1024px) {
+            .container { padding: 40px 30px; }
+            .menu-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .menu-item { padding: 20px 25px; }
+            .menu-item-title { font-size: 18px; }
+            .menu-item-price { font-size: 20px; min-width: 80px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== ПАДАЮЩИЕ КАЛЬЯНЫ ========== -->
+    <!-- ПАДАЮЩИЕ КАЛЬЯНЫ -->
     <div class="falling-images">
-        <div class="hookah-container" style="left: 15%; width: 90px; animation-duration: 16s; animation-delay: 0s;">
+        <div class="hookah-container" style="left: 15%; width: 60px; animation-duration: 16s; animation-delay: 0s;">
             <img src="{% static 'main/images/hookah2.png' %}" class="falling-img" loading="lazy" alt="">
         </div>
-        <div class="hookah-container" style="left: 45%; width: 100px; animation-duration: 18s; animation-delay: 3s;">
+        <div class="hookah-container" style="left: 45%; width: 70px; animation-duration: 18s; animation-delay: 3s;">
             <img src="{% static 'main/images/hookah2.png' %}" class="falling-img" loading="lazy" alt="">
         </div>
-        <div class="hookah-container" style="left: 75%; width: 95px; animation-duration: 17s; animation-delay: 6s;">
+        <div class="hookah-container" style="left: 75%; width: 65px; animation-duration: 17s; animation-delay: 6s;">
             <img src="{% static 'main/images/hookah2.png' %}" class="falling-img" loading="lazy" alt="">
         </div>
     </div>
 
-    <!-- ========== БУРГЕР-МЕНЮ ========== -->
+    <!-- БУРГЕР-МЕНЮ -->
     <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -828,7 +681,6 @@
     <div class="dropdown-menu" id="dropdownMenu">
         <a href="/">ГЛАВНАЯ</a>
         
-        <!-- КАЛЬЯНЫ -->
         <div class="menu-item-main" onclick="toggleSubmenu('hookah-submenu')">КАЛЬЯНЫ</div>
         <div id="hookah-submenu" class="submenu">
             <a href="#hookahs">НА КАПСУЛЕ</a>
@@ -843,7 +695,6 @@
             <a href="#hookahs">МИКС</a>
         </div>
 
-        <!-- ЗАКУСКИ -->
         <div class="menu-item-main" onclick="toggleSubmenu('snacks-submenu')">ЗАКУСКИ</div>
         <div id="snacks-submenu" class="submenu">
             <a href="#snacks">СУХАРИКИ</a>
@@ -856,7 +707,6 @@
             <a href="#snacks">АРАХИС</a>
         </div>
 
-        <!-- СЛАДКИЕ СНЕКИ -->
         <div class="menu-item-main" onclick="toggleSubmenu('sweet-submenu')">СЛАДКИЕ СНЕКИ</div>
         <div id="sweet-submenu" class="submenu">
             <a href="#sweet">СНИКЕРС</a>
@@ -865,23 +715,17 @@
             <a href="#sweet">КИТКАТ</a>
         </div>
 
-        <!-- НОВЫЙ ПУНКТ: КУХНЯ (пока пустой) -->
-        <div class="menu-item-main" onclick="toggleSubmenu('kitchen-submenu')">КУХНЯ</div>
-        <div id="kitchen-submenu" class="submenu">
-            <!-- Пока пусто, можно добавить позже -->
-        </div>
-
-        <!-- НОВЫЙ ПУНКТ: БАР (включает алкоголь) -->
         <div class="menu-item-main" onclick="toggleSubmenu('bar-submenu')">БАР</div>
         <div id="bar-submenu" class="submenu">
-            <a href="#alcohol">BALNC</a>
+            <a href="#alcohol">BLANC</a>
             <a href="#alcohol">SPATEN</a>
             <a href="#alcohol">KOZEL</a>
-            <a href="#alcohol">HUUGARDEN</a>
+            <a href="#alcohol">HOEGAARDEN</a>
             <a href="#alcohol">CHESTER</a>
             <a href="#coffee">ЛАТТЕ</a>
             <a href="#coffee">КАПУЧИНО</a>
             <a href="#coffee">ЭСПРЕССО</a>
+            <a href="#coffee">АМЕРИКАНО</a>
             <a href="#soda">COCA-COLA</a>
             <a href="#soda">FANTA</a>
             <a href="#soda">SPRITE</a>
@@ -891,14 +735,11 @@
             <a href="#soda">ВОДА</a>
             <a href="#soda">АВТОРСКИЙ ЛИМОНАД</a>
             <a href="#soda">ФРЕШ</a>
-            <a href="#lemonade">МАНГОВЫЙ ЛИМОНАД</a>
-            <a href="#lemonade">АПЕЛЬСИНОВЫЙ</a>
-            <a href="#lemonade">КОКОСОВЫЙ</a>
-            <a href="#lemonade">ПИНА КОЛАДА</a>
-            <a href="#lemonade">МАРАКУЙЯ</a>
-            <a href="#lemonade">ГРАНАТ</a>
-            <a href="#lemonade">МАЛИНА</a>
-            <a href="#lemonade">ВИШНЯ</a>
+            <a href="#lemonade">ЦИТРУСОВЫЙ</a>
+            <a href="#lemonade">АРБУЗНЫЙ</a>
+            <a href="#lemonade">МАНГО-МАРАКУЙЯ</a>
+            <a href="#lemonade">МОХИТО</a>
+            <a href="#lemonade">ЛЕСНЫЕ ЯГОДЫ</a>
             <a href="#tea">ГЛИНТВЕЙН</a>
             <a href="#tea">ОБЛЕПИХА</a>
             <a href="#tea">ГАБА</a>
@@ -912,7 +753,6 @@
             <a href="#tea">ЖАСМИНОВЫЙ ЧАЙ</a>
         </div>
 
-        <!-- МОЛОЧНЫЕ КОКТЕЙЛИ -->
         <div class="menu-item-main" onclick="toggleSubmenu('milkshakes-submenu')">МОЛОЧНЫЕ КОКТЕЙЛИ</div>
         <div id="milkshakes-submenu" class="submenu">
             <a href="#milkshakes">СНИКЕРС</a>
@@ -920,18 +760,15 @@
             <a href="#milkshakes">БАУНТИ</a>
         </div>
 
-        <!-- РАЗВЛЕЧЕНИЯ -->
         <div class="menu-item-main" onclick="toggleSubmenu('entertainment-submenu')">РАЗВЛЕЧЕНИЯ</div>
         <div id="entertainment-submenu" class="submenu">
             <a href="#entertainment">PS 4 / PS 5</a>
             <a href="#entertainment">БИЛЬЯРД</a>
             <a href="#entertainment">КАРАОКЕ</a>
         </div>
-
-        <!-- АРЕНДА ЛОФТА ПОЛНОСТЬЮ УДАЛЕНА -->
     </div>
 
-    <!-- ========== ХЕДЕР ========== -->
+    <!-- ХЕДЕР -->
     <div class="new-header">
         <div class="header-content">
             <a href="/" class="logo-link">
@@ -942,12 +779,11 @@
         </div>
     </div>
 
-    <!-- ========== ОСНОВНОЙ КОНТЕНТ ========== -->
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <div class="container">
         <h1>НАШЕ МЕНЮ</h1>
         <div class="menu-subtitle">ВСЁ ДЛЯ ИДЕАЛЬНОГО ОТДЫХА</div>
         
-        <!-- Навигация по категориям -->
         <div class="categories-wrapper">
             <div class="categories-scroll">
                 <div class="category-btn active" onclick="filterCategory('all')">ВСЁ МЕНЮ</div>
@@ -968,16 +804,17 @@
         <div class="menu-section" id="hookahs" data-category="hookah">
             <div class="section-title">КАЛЬЯНЫ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА КАПСУЛЕ</span><span class="menu-item-price">{{ prices.На_капсуле|default:"1200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">2 КАЛЬЯНА</span><span class="menu-item-price">{{ prices.2_кальяна|default:"2200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПРЕМИУМ</span><span class="menu-item-price">{{ prices.Премиум|default:"1800" }}₽</span></div><div class="menu-item-description">ТАБАК ПРЕМИУМ-КЛАССА</div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА МОЛОКЕ</span><span class="menu-item-price">{{ prices.На_молоке|default:"1400" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АВТОРСКИЙ</span><span class="menu-item-price">{{ prices.Авторский|default:"1500" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА ГРЕЙПФРУТЕ</span><span class="menu-item-price">{{ prices.На_грейпфруте|default:"1600" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА АНАНАСЕ</span><span class="menu-item-price">{{ prices.На_ананасе|default:"1600" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА ГРАНАТЕ</span><span class="menu-item-price">{{ prices.На_гранате|default:"1600" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПАРФЮМИРОВАННЫЙ</span><span class="menu-item-price">{{ prices.Парфюмированный|default:"1700" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МИКС</span><span class="menu-item-price">{{ prices.Микс|default:"1500" }}₽</span></div><div class="menu-item-description">СМЕСЬ ИЗ 2-3 ВКУСОВ</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОБЫЧНЫЙ</span><span class="menu-item-price">{{ prices.hookah_обычный|default:"1700" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА КАПСУЛЕ</span><span class="menu-item-price">{{ prices.hookah_на_капсуле|default:"1700" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">2 КАЛЬЯНА</span><span class="menu-item-price">{{ prices.hookah_2_кальяна|default:"1500" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПРЕМИУМ</span><span class="menu-item-price">{{ prices.hookah_премиум|default:"2000" }}₽</span></div><div class="menu-item-description">ТАБАК ПРЕМИУМ-КЛАССА</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА МОЛОКЕ</span><span class="menu-item-price">{{ prices.hookah_на_молоке|default:"1900" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АВТОРСКИЙ</span><span class="menu-item-price">{{ prices.hookah_авторский|default:"4000" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА ГРЕЙПФРУТЕ</span><span class="menu-item-price">{{ prices.hookah_на_грейпфруте|default:"2500" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА АНАНАСЕ</span><span class="menu-item-price">{{ prices.hookah_на_ананасе|default:"3100" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НА ГРАНАТЕ</span><span class="menu-item-price">{{ prices.hookah_на_гранате|default:"2800" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПАРФЮМИРОВАННЫЙ</span><span class="menu-item-price">{{ prices.hookah_парфюмированный|default:"3000" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МИКС</span><span class="menu-item-price">{{ prices.hookah_микс|default:"3000" }}₽</span></div><div class="menu-item-description">СМЕСЬ ИЗ 2-3 ВКУСОВ</div></div>
             </div>
         </div>
 
@@ -985,14 +822,14 @@
         <div class="menu-section" id="snacks" data-category="snack">
             <div class="section-title">ЗАКУСКИ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СУХАРИКИ</span><span class="menu-item-price">{{ prices.Сухарики|default:"150" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГРЕНКИ</span><span class="menu-item-price">{{ prices.Гренки|default:"180" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФИСТАШКИ</span><span class="menu-item-price">{{ prices.Фисташки|default:"250" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЧИПСЫ ЛЕЙС</span><span class="menu-item-price">{{ prices.Чипсы_Лейс|default:"200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПРИНГЛС</span><span class="menu-item-price">{{ prices.Принглс|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАЛЬМАР</span><span class="menu-item-price">{{ prices.Кальмар|default:"280" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПОЛОСАТИК</span><span class="menu-item-price">{{ prices.Полосатик|default:"180" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АРАХИС</span><span class="menu-item-price">{{ prices.Арахис|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СУХАРИКИ</span><span class="menu-item-price">{{ prices.snack_сухарики|default:"120" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГРЕНКИ</span><span class="menu-item-price">{{ prices.snack_гренки|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФИСТАШКИ</span><span class="menu-item-price">{{ prices.snack_фисташки|default:"300" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЧИПСЫ ЛЕЙС</span><span class="menu-item-price">{{ prices.snack_чипсы_лейс|default:"250" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПРИНГЛС</span><span class="menu-item-price">{{ prices.snack_принглс|default:"450" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАЛЬМАР</span><span class="menu-item-price">{{ prices.snack_кальмар|default:"400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПОЛОСАТИК</span><span class="menu-item-price">{{ prices.snack_полосатик|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АРАХИС</span><span class="menu-item-price">{{ prices.snack_арахис|default:"200" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1000,10 +837,10 @@
         <div class="menu-section" id="sweet" data-category="sweet">
             <div class="section-title">СЛАДКИЕ СНЕКИ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СНИКЕРС</span><span class="menu-item-price">{{ prices.Сникерс|default:"150" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.Баунти|default:"150" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТВИКС</span><span class="menu-item-price">{{ prices.Твикс|default:"150" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КИТКАТ</span><span class="menu-item-price">{{ prices.КитКат|default:"150" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СНИКЕРС</span><span class="menu-item-price">{{ prices.sweet_сникерс|default:"190" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.sweet_баунти|default:"190" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТВИКС</span><span class="menu-item-price">{{ prices.sweet_твикс|default:"190" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КИТКАТ</span><span class="menu-item-price">{{ prices.sweet_кит_кат|default:"190" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1011,11 +848,11 @@
         <div class="menu-section" id="alcohol" data-category="alcohol">
             <div class="section-title">АЛКОГОЛЬ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">BALNC</span><span class="menu-item-price">{{ prices.Balnc|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">SPATEN</span><span class="menu-item-price">{{ prices.Spaten|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">KOZEL</span><span class="menu-item-price">{{ prices.Kozel|default:"300" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">HUUGARDEN</span><span class="menu-item-price">{{ prices.Huugarden|default:"400" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">CHESTER</span><span class="menu-item-price">{{ prices.Chester|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">BLANC</span><span class="menu-item-price">{{ prices.alcohol_blanc|default:"300" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">SPATEN</span><span class="menu-item-price">{{ prices.alcohol_spaten|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">KOZEL</span><span class="menu-item-price">{{ prices.alcohol_kozel|default:"450" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">HOEGAARDEN</span><span class="menu-item-price">{{ prices.alcohol_hoegaarden|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">CHESTER</span><span class="menu-item-price">{{ prices.alcohol_chester|default:"350" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1023,14 +860,11 @@
         <div class="menu-section" id="lemonade" data-category="lemonade">
             <div class="section-title">ЛИМОНАДЫ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНГОВЫЙ</span><span class="menu-item-price">{{ prices.Манговый|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АПЕЛЬСИНОВЫЙ</span><span class="menu-item-price">{{ prices.Апельсиновый|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КОКОСОВЫЙ</span><span class="menu-item-price">{{ prices.Кокосовый|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПИНА КОЛАДА</span><span class="menu-item-price">{{ prices.Пина_Колада|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАРАКУЙЯ</span><span class="menu-item-price">{{ prices.Маракуйя|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГРАНАТ</span><span class="menu-item-price">{{ prices.Гранат|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАЛИНА</span><span class="menu-item-price">{{ prices.Малина|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВИШНЯ</span><span class="menu-item-price">{{ prices.Вишня|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЦИТРУСОВЫЙ</span><span class="menu-item-price">{{ prices.lemonade_цитрусовый_04|default:"400" }}₽ / {{ prices.lemonade_цитрусовый_1л|default:"800" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АРБУЗНЫЙ</span><span class="menu-item-price">{{ prices.lemonade_арбузный_04|default:"400" }}₽ / {{ prices.lemonade_арбузный_1л|default:"800" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНГО-МАРАКУЙЯ</span><span class="menu-item-price">{{ prices.lemonade_манго_маракуйя_04|default:"400" }}₽ / {{ prices.lemonade_манго_маракуйя_1л|default:"800" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МОХИТО</span><span class="menu-item-price">{{ prices.lemonade_мохито_04|default:"400" }}₽ / {{ prices.lemonade_мохито_1л|default:"800" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛЕСНЫЕ ЯГОДЫ</span><span class="menu-item-price">{{ prices.lemonade_лесные_ягоды_04|default:"400" }}₽ / {{ prices.lemonade_лесные_ягоды_1л|default:"800" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1038,9 +872,10 @@
         <div class="menu-section" id="coffee" data-category="coffee">
             <div class="section-title">КОФЕ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛАТТЕ</span><span class="menu-item-price">{{ prices.Латте|default:"250" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАПУЧИНО</span><span class="menu-item-price">{{ prices.Капучино|default:"250" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЭСПРЕССО</span><span class="menu-item-price">{{ prices.Эспрессо|default:"180" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АМЕРИКАНО</span><span class="menu-item-price">{{ prices.coffee_американо|default:"250" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЭСПРЕССО</span><span class="menu-item-price">{{ prices.coffee_эспрессо|default:"200" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАПУЧИНО</span><span class="menu-item-price">{{ prices.coffee_капучино|default:"320" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛАТТЕ</span><span class="menu-item-price">{{ prices.coffee_латте|default:"320" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1048,17 +883,17 @@
         <div class="menu-section" id="tea" data-category="tea">
             <div class="section-title">ЧАЙ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГЛИНТВЕЙН</span><span class="menu-item-price">{{ prices.Глинтвейн|default:"450" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОБЛЕПИХА</span><span class="menu-item-price">{{ prices.Облепиха|default:"400" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГАБА</span><span class="menu-item-price">{{ prices.Габа|default:"500" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МОЛОЧНЫЙ УЛУН</span><span class="menu-item-price">{{ prices.Молочный_улун|default:"450" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТЕ ГУАНЬ ИНЬ</span><span class="menu-item-price">{{ prices.Те_Гуань_Инь|default:"550" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПУЭР</span><span class="menu-item-price">{{ prices.Пуэр|default:"500" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРКАДЕ</span><span class="menu-item-price">{{ prices.Каркаде|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВИШНЕВЫЙ</span><span class="menu-item-price">{{ prices.Вишневый|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНГОВЫЙ</span><span class="menu-item-price">{{ prices.Манговый|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЯГОДНЫЙ</span><span class="menu-item-price">{{ prices.Ягодный|default:"400" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЖАСМИНОВЫЙ</span><span class="menu-item-price">{{ prices.Жасминовый|default:"400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГЛИНТВЕЙН</span><span class="menu-item-price">{{ prices.tea_глинтвейн|default:"650" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОБЛЕПИХА</span><span class="menu-item-price">{{ prices.tea_облепиха|default:"650" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГАБА</span><span class="menu-item-price">{{ prices.tea_габа|default:"600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МОЛОЧНЫЙ УЛУН</span><span class="menu-item-price">{{ prices.tea_молочный_улун|default:"600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТЕ ГУАНЬ ИНЬ</span><span class="menu-item-price">{{ prices.tea_те_гуань_инь|default:"600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПУЭР</span><span class="menu-item-price">{{ prices.tea_пуэр|default:"600" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРКАДЕ</span><span class="menu-item-price">{{ prices.tea_каркаде|default:"500" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВИШНЕВЫЙ</span><span class="menu-item-price">{{ prices.tea_вишневый|default:"650" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНГОВЫЙ</span><span class="menu-item-price">{{ prices.tea_манговый|default:"650" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЯГОДНЫЙ</span><span class="menu-item-price">{{ prices.tea_ягодный|default:"650" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЖАСМИНОВЫЙ</span><span class="menu-item-price">{{ prices.tea_жасминовый|default:"650" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1066,15 +901,15 @@
         <div class="menu-section" id="soda" data-category="soda">
             <div class="section-title">БА НАПИТКИ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">COCA-COLA</span><span class="menu-item-price">{{ prices.Coca_Cola|default:"200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">FANTA</span><span class="menu-item-price">{{ prices.Fanta|default:"200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">SPRITE</span><span class="menu-item-price">{{ prices.Sprite|default:"200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ADRENALIN</span><span class="menu-item-price">{{ prices.Adrenalin|default:"220" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">BURN</span><span class="menu-item-price">{{ prices.Burn|default:"220" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СОКИ</span><span class="menu-item-price">{{ prices.Соки|default:"200" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВОДА</span><span class="menu-item-price">{{ prices.Вода|default:"150" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АВТОРСКИЙ ЛИМОНАД</span><span class="menu-item-price">{{ prices.Авторский_лимонад|default:"350" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФРЕШ</span><span class="menu-item-price">{{ prices.Фреш|default:"400" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">COCA-COLA</span><span class="menu-item-price">{{ prices.soda_coca_cola|default:"250" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">FANTA</span><span class="menu-item-price">{{ prices.soda_fanta|default:"220" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">SPRITE</span><span class="menu-item-price">{{ prices.soda_sprite|default:"220" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ADRENALIN</span><span class="menu-item-price">{{ prices.soda_adrenalin|default:"450" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">BURN</span><span class="menu-item-price">{{ prices.soda_burn|default:"350" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СОКИ</span><span class="menu-item-price">{{ prices.soda_соки_04|default:"350" }}₽ / {{ prices.soda_соки_1л|default:"650" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ВОДА</span><span class="menu-item-price">{{ prices.soda_вода|default:"190" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АВТОРСКИЙ ЛИМОНАД</span><span class="menu-item-price">{{ prices.soda_авторский_лимонад_04|default:"400" }}₽ / {{ prices.soda_авторский_лимонад_1л|default:"800" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФРЕШ</span><span class="menu-item-price">{{ prices.soda_фреш_04|default:"550" }}₽ / {{ prices.soda_фреш_1л|default:"1100" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1082,9 +917,9 @@
         <div class="menu-section" id="milkshakes" data-category="milkshake">
             <div class="section-title">МОЛОЧНЫЕ КОКТЕЙЛИ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СНИКЕРС</span><span class="menu-item-price">{{ prices.Сникерс|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОРЕО</span><span class="menu-item-price">{{ prices.Орео|default:"380" }}₽</span></div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.Баунти|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СНИКЕРС</span><span class="menu-item-price">{{ prices.milkshake_сникерс|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОРЕО</span><span class="menu-item-price">{{ prices.milkshake_орео|default:"380" }}₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.milkshake_баунти|default:"380" }}₽</span></div></div>
             </div>
         </div>
 
@@ -1092,36 +927,32 @@
         <div class="menu-section" id="entertainment" data-category="entertainment">
             <div class="section-title">РАЗВЛЕЧЕНИЯ</div>
             <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">PS 4 / PS 5</span><span class="menu-item-price">{{ prices.Playstation|default:"800" }}₽/ЧАС</span></div><div class="menu-item-description">FIFA, NHL, MORTAL KOMBAT</div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БИЛЬЯРД</span><span class="menu-item-price">{{ prices.Бильярд|default:"1000" }}₽/ЧАС</span></div><div class="menu-item-description">РУССКИЙ БИЛЬЯРД</div></div>
-                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРАОКЕ</span><span class="menu-item-price">{{ prices.Караоке|default:"2000" }}₽/ЧАС</span></div><div class="menu-item-description">ПРОФЕССИОНАЛЬНАЯ АКУСТИКА</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">PS 4 / PS 5</span><span class="menu-item-price">{{ prices.entertainment_ps|default:"800" }}₽/ЧАС</span></div><div class="menu-item-description">FIFA, NHL, MORTAL KOMBAT</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БИЛЬЯРД</span><span class="menu-item-price">{{ prices.entertainment_бильярд|default:"1000" }}₽/ЧАС</span></div><div class="menu-item-description">РУССКИЙ БИЛЬЯРД</div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРАОКЕ</span><span class="menu-item-price">{{ prices.entertainment_караоке|default:"2000" }}₽/ЧАС</span></div><div class="menu-item-description">ПРОФЕССИОНАЛЬНАЯ АКУСТИКА</div></div>
             </div>
         </div>
 
-        <!-- АРЕНДА ЛОФТА ПОЛНОСТЬЮ УДАЛЕНА -->
-
-        <!-- НОВАЯ КНОПКА БРОНИРОВАНИЯ -->
+        <!-- КНОПКА БРОНИРОВАНИЯ -->
         <div class="booking-wrapper">
-            <a href="tel:+79026984414" class="booking-button" onclick="alert('+7 (902) 698-44-14')">
-                <div class="button-inner">
-                    <div class="button-icon">
-                        <span>📞</span>
-                    </div>
+            <a href="tel:+79026984414" class="booking-button">
+                <div class="button-content">
+                    <span class="button-icon">📞</span>
                     <span class="button-text">ЗАБРОНИРОВАТЬ</span>
-                    <span class="button-phone">+7 (902) 698 - 44 - 14</span>
+                    <span class="button-phone">+7 (902) 698 44 14</span>
                 </div>
             </a>
         </div>
 
         <!-- РЕЖИМ РАБОТЫ -->
         <div class="schedule-block">
-            <p style="font-size: 32px;">ВРЕМЯ РАБОТЫ</p>
+            <p>ВРЕМЯ РАБОТЫ</p>
             <p><strong>БУДНИ:</strong> 14:00 - 01:00</p>
             <p><strong>ПЯТНИЦА И ВЫХОДНЫЕ:</strong> 14:00 - 03:00</p>
         </div>
     </div>
 
-    <!-- ========== ФУТТЕР ========== -->
+    <!-- ФУТТЕР -->
     <div class="footer">
         <div class="footer-oval">
             <a href="/" class="footer-logo-link">
@@ -1131,7 +962,6 @@
             <p>КУЛИКОВСКАЯ 5, СЕВЕРНОЕ БУТОВО</p>
             <p>+7 (902) 698-44-14</p>
             
-            <!-- ПЯТЬ СОЦИАЛЬНЫХ КНОПОК -->
             <div class="social-buttons">
                 <a href="https://t.me/chillbutovo" target="_blank" class="social-btn telegram">
                     <img src="{% static 'main/images/TelegramLink.png' %}" alt="Telegram" class="social-icon-img" loading="lazy">
@@ -1162,12 +992,7 @@
         function toggleMenu() {
             document.querySelector('.menu-toggle').classList.toggle('active');
             document.getElementById('dropdownMenu').classList.toggle('active');
-            
-            if (document.getElementById('dropdownMenu').classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
+            document.body.style.overflow = document.getElementById('dropdownMenu').classList.contains('active') ? 'hidden' : 'auto';
         }
 
         document.addEventListener('click', function(event) {
@@ -1178,61 +1003,43 @@
                 menu.classList.remove('active');
                 toggle.classList.remove('active');
                 document.body.style.overflow = 'auto';
-                
-                document.querySelectorAll('.submenu').forEach(sub => {
-                    sub.classList.remove('active');
-                });
+                document.querySelectorAll('.submenu').forEach(sub => sub.classList.remove('active'));
             }
         });
 
         function toggleSubmenu(submenuId) {
             const submenu = document.getElementById(submenuId);
-            
             document.querySelectorAll('.submenu').forEach(sub => {
-                if (sub.id !== submenuId) {
-                    sub.classList.remove('active');
-                }
+                if (sub.id !== submenuId) sub.classList.remove('active');
             });
-            
             submenu.classList.toggle('active');
         }
 
         function filterCategory(category) {
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            if (category === 'all') {
-                document.querySelectorAll('.menu-section').forEach(section => {
-                    section.style.display = 'block';
-                });
-            } else {
-                document.querySelectorAll('.menu-section').forEach(section => {
-                    if (section.dataset.category === category) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-            }
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.style.display = (category === 'all' || section.dataset.category === category) ? 'block' : 'none';
+            });
         }
 
-        document.querySelectorAll('.dropdown-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('.menu-toggle').classList.remove('active');
-                document.getElementById('dropdownMenu').classList.remove('active');
-                document.body.style.overflow = 'auto';
-                
-                document.querySelectorAll('.submenu').forEach(sub => {
-                    sub.classList.remove('active');
-                });
+        document.querySelectorAll('.dropdown-menu a, .menu-item-main').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.classList.contains('menu-item-main')) {
+                    e.stopPropagation();
+                } else {
+                    document.querySelector('.menu-toggle').classList.remove('active');
+                    document.getElementById('dropdownMenu').classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    document.querySelectorAll('.submenu').forEach(sub => sub.classList.remove('active'));
+                }
             });
         });
 
-        document.querySelectorAll('.menu-item-main').forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.stopPropagation();
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.style.display = 'block';
             });
         });
     </script>
