@@ -10,7 +10,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-^)dgs99v(cwyyh
 # DEBUG выключается через переменную окружения на Railway
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.railway.app']
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    'localhost', 
+    '.railway.app',
+    'pochilim.ru',
+    'www.pochilim.ru'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
