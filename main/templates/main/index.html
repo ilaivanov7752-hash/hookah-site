@@ -3,11 +3,10 @@
 <html>
 <head>
     <meta name="yandex-verification" content="d2a9c487cc8a30ed" />
-    <!-- Описание для Яндекса -->
     <meta name="description" content="Кальянная POCHILIM в Северном Бутово на Куликовской 5. Кальяны на любой вкус, PlayStation 5, настольные игры, аренда лофта для праздников. Работаем ежедневно с 15:00.">
-    
-    <!-- Ключевые слова (Яндекс любит) -->
     <meta name="keywords" content="кальянная, северное бутово, кальян, покурить кальян, ps5, приставка, настольные игры, аренда лофта, день рождения, корпоратив, почилим, pochilim">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Почилим - Северное Бутово</title>
     
     <style>
@@ -191,20 +190,6 @@
             margin-top: 20px;
             font-size: 14px;
             color: #888;
-        }
-
-        @media (max-width: 768px) {
-            .age-modal-content {
-                padding: 40px 20px;
-            }
-            .age-modal h2 {
-                font-size: 36px;
-            }
-            .age-btn {
-                padding: 14px 30px;
-                font-size: 18px;
-                min-width: 150px;
-            }
         }
 
         /* ========== ПАДАЮЩИЕ КАЛЬЯНЫ ========== */
@@ -461,22 +446,6 @@
             transform: translateY(0);
         }
 
-        @media (max-width: 768px) {
-            .photo-row {
-                flex-direction: column;
-            }
-            .photo-item {
-                width: 100%;
-                height: 350px;
-            }
-            .photo-title {
-                font-size: 24px;
-            }
-            .photo-description {
-                font-size: 14px;
-            }
-        }
-
         /* ========== БЛОК О НАС ========== */
         .about {
             background: rgba(255, 255, 255, 0.25);
@@ -504,7 +473,6 @@
             font-weight: 700;
         }
 
-        /* Стили для карты */
         .map-container {
             margin: 30px 0;
             border-radius: 30px;
@@ -517,12 +485,6 @@
             width: 100%;
             height: 400px;
             display: block;
-        }
-
-        @media (max-width: 768px) {
-            .map-container iframe {
-                height: 300px;
-            }
         }
 
         .features {
@@ -778,51 +740,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Адаптация для мобильных */
-        @media (max-width: 768px) {
-            .booking-button {
-                padding: 14px 25px;
-                min-width: 250px;
-            }
-            
-            .button-icon {
-                font-size: 22px;
-            }
-            
-            .button-text {
-                font-size: 18px;
-            }
-            
-            .button-phone {
-                font-size: 16px;
-                padding: 6px 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .booking-button {
-                padding: 12px 20px;
-                min-width: 220px;
-            }
-            
-            .button-content {
-                gap: 8px;
-            }
-            
-            .button-icon {
-                font-size: 20px;
-            }
-            
-            .button-text {
-                font-size: 16px;
-            }
-            
-            .button-phone {
-                font-size: 14px;
-                padding: 5px 12px;
-            }
-        }
-
         /* ========== РЕЖИМ РАБОТЫ ========== */
         .schedule-block {
             background: rgba(255, 255, 255, 0.25);
@@ -1007,20 +924,6 @@
             border-color: white;
         }
 
-        @media (max-width: 768px) {
-            .social-buttons {
-                gap: 15px;
-            }
-            .social-btn {
-                width: 55px;
-                height: 55px;
-            }
-            .social-icon-img {
-                width: 30px;
-                height: 30px;
-            }
-        }
-
         /* ========== БУРГЕР-МЕНЮ ========== */
         .menu-toggle {
             position: fixed;
@@ -1104,15 +1007,304 @@
             border-bottom: none;
         }
 
-        /* Плавный скролл для якорных ссылок */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* ========== МЕДИА-ЗАПРОСЫ ДЛЯ ТЕЛЕФОНОВ ========== */
+        @media (max-width: 768px) {
+            /* ХЕДЕР */
+            .new-header {
+                padding: 30px 15px 20px;
+                margin-bottom: 20px;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
+            }
+
+            .logo-link {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 15px auto;
+            }
+
+            .pochilim-text {
+                font-size: 48px;
+                margin: 5px 0 3px;
+            }
+
+            .pochilim-subtitle {
+                font-size: 18px;
+                letter-spacing: 4px;
+            }
+
+            /* КОНТЕЙНЕР */
+            .container {
+                padding: 20px 15px;
+                border-radius: 30px;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .gallery-intro {
+                font-size: 16px;
+                margin-bottom: 30px;
+                padding: 0 15px;
+            }
+
+            /* ГАЛЕРЕЯ */
+            .photo-gallery {
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .photo-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .photo-item {
+                width: 100%;
+                height: 250px;
+            }
+
+            .photo-title {
+                font-size: 20px;
+            }
+
+            .photo-description {
+                font-size: 14px;
+                max-width: 100%;
+            }
+
+            /* БЛОК О НАС */
+            .about {
+                padding: 25px;
+                border-radius: 25px;
+                margin-top: 30px;
+            }
+
+            .about p {
+                font-size: 18px;
+                margin: 8px 0;
+            }
+
+            .about p:first-child {
+                font-size: 22px;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+
+            .features {
+                gap: 8px;
+                margin: 20px 0;
+            }
+
+            .feature {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            /* ЛОФТ */
+            .loft-section {
+                border-radius: 30px;
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+
+            .loft-icon {
+                font-size: 60px;
+                margin-bottom: 15px;
+            }
+
+            .loft-section h2 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .loft-section h2 span {
+                font-size: 20px;
+            }
+
+            .loft-description {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .loft-features-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin: 20px 0;
+            }
+
+            .loft-feature-item {
+                padding: 15px;
+                border-radius: 20px;
+            }
+
+            .loft-feature-item .emoji {
+                font-size: 28px;
+            }
+
+            .loft-feature-item strong {
+                font-size: 16px;
+            }
+
+            .loft-quote {
+                font-size: 18px;
+                margin: 20px 0;
+                padding: 15px;
+                border-radius: 40px;
+            }
+
+            .loft-button {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+
+            /* КНОПКА БРОНИРОВАНИЯ */
+            .booking-wrapper {
+                margin: 40px 0 20px;
+            }
+
+            .booking-button {
+                padding: 12px 25px;
+                min-width: auto;
+                width: 100%;
+            }
+
+            .button-icon {
+                font-size: 22px;
+            }
+
+            .button-text {
+                font-size: 16px;
+            }
+
+            .button-phone {
+                font-size: 16px;
+                padding: 6px 15px;
+            }
+
+            /* РЕЖИМ РАБОТЫ */
+            .schedule-block {
+                padding: 25px;
+                border-radius: 25px;
+                margin-top: 30px;
+            }
+
+            .schedule-block p {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+
+            .schedule-block p:first-child {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            /* ФУТТЕР */
+            .footer {
+                padding: 30px 15px 40px;
+                margin-top: 40px;
+            }
+
+            .footer-oval {
+                padding: 30px 20px;
+                border-radius: 100px 100px 50px 50px;
+            }
+
+            .footer-logo-link {
+                width: 70px;
+                height: 70px;
+                margin: 0 auto 15px auto;
+            }
+
+            .footer-title {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .footer p {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+
+            /* СОЦСЕТИ */
+            .social-buttons {
+                gap: 15px;
+                margin: 20px 0 15px;
+            }
+
+            .social-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-icon-img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .social-tooltip {
+                display: none;
+            }
+
+            /* БУРГЕР-МЕНЮ */
+            .menu-toggle {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                gap: 8px;
+            }
+
+            .menu-toggle span {
+                width: 30px;
+                height: 4px;
+            }
+
+            .dropdown-menu {
+                top: 90px;
+                right: 20px;
+                padding: 15px 0;
+                min-width: 280px;
+                max-width: 90vw;
+                border-radius: 25px;
+            }
+
+            .dropdown-menu a {
+                padding: 15px 25px;
+                font-size: 18px;
+            }
+
+            /* ПАДАЮЩИЕ КАЛЬЯНЫ */
+            .fast { width: 30px; }
+            .medium { width: 35px; }
+            .slow { width: 40px; }
+        }
+
+        /* ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ТЕЛЕФОНОВ */
+        @media (max-width: 480px) {
+            .button-content {
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            
+            .button-phone {
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== МОДАЛЬНОЕ ОКНО ПРОВЕРКИ ВОЗРАСТА ========== -->
+    <!-- МОДАЛЬНОЕ ОКНО ПРОВЕРКИ ВОЗРАСТА -->
     <div class="age-modal" id="ageModal">
         <div class="age-modal-content">
             <div class="age-icon">🔞</div>
@@ -1137,40 +1329,23 @@
         </div>
     </div>
 
-    <!-- ========== ПАДАЮЩИЕ КАЛЬЯНЫ ========== -->
+    <!-- ПАДАЮЩИЕ КАЛЬЯНЫ -->
     <div class="falling-images">
-        <!-- Быстрые/мелкие -->
         <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 2%; animation-delay: 0s;">
         <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 8%; animation-delay: 0.7s;">
         <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 14%; animation-delay: 1.4s;">
         <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 20%; animation-delay: 2.1s;">
         <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 26%; animation-delay: 2.8s;">
         <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 32%; animation-delay: 3.5s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 68%; animation-delay: 1.8s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 74%; animation-delay: 2.5s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 80%; animation-delay: 3.2s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 86%; animation-delay: 3.9s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 92%; animation-delay: 4.6s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img fast" style="left: 98%; animation-delay: 5.3s;">
-        
-        <!-- Средние -->
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 5%; animation-delay: 1.2s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 11%; animation-delay: 2.4s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 17%; animation-delay: 3.6s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 23%; animation-delay: 4.8s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 29%; animation-delay: 6.0s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 35%; animation-delay: 7.2s;">
-        
-        <!-- Медленные/крупные -->
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 45%; animation-delay: 0.5s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 52%; animation-delay: 2.2s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 59%; animation-delay: 3.9s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 66%; animation-delay: 5.6s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 73%; animation-delay: 7.3s;">
-        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 80%; animation-delay: 9.0s;">
+        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 45%; animation-delay: 0.5s;">
+        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 52%; animation-delay: 2.2s;">
+        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img medium" style="left: 59%; animation-delay: 3.9s;">
+        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 75%; animation-delay: 2.2s;">
+        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 80%; animation-delay: 7.3s;">
+        <img src="{% static 'main/images/hookah2.png' %}" class="falling-img slow" style="left: 86%; animation-delay: 3.9s;">
     </div>
 
-    <!-- ========== БУРГЕР-МЕНЮ ========== -->
+    <!-- БУРГЕР-МЕНЮ -->
     <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -1183,7 +1358,7 @@
         <a href="#loft-section">Аренда лофта</a>
     </div>
 
-    <!-- ========== ХЕДЕР ========== -->
+    <!-- ХЕДЕР -->
     <div class="new-header">
         <div class="header-content">
             <a href="/" class="logo-link">
@@ -1194,7 +1369,7 @@
         </div>
     </div>
 
-    <!-- ========== ОСНОВНОЙ КОНТЕНТ ========== -->
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <div class="container">
         <h1>НАША ГАЛЕРЕЯ</h1>
         <div class="gallery-intro">
@@ -1258,11 +1433,9 @@
             <p>Северное Бутово, Куликовская 5</p>
             <p>Предлагаем все для комфортного отдыха по адекватным ценам</p>
             
-            <!-- ========== КАРТА ========== -->
             <div class="map-container">
                 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ade84181c423ae09ad56cedd4a3ff25fe4facf18b9339a6fbd5bf6fda5c61950c&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
             </div>
-            <!-- ========== КОНЕЦ КАРТЫ ========== -->
             
             <div class="features">
                 <span class="feature">Большой выбор чая</span>
@@ -1279,7 +1452,7 @@
             </div>
         </div>
 
-        <!-- ========== БЛОК АРЕНДЫ ЛОФТА ========== -->
+        <!-- БЛОК АРЕНДЫ ЛОФТА -->
         <div class="loft-section" id="loft-section">
             <div class="loft-content">
                 <div class="loft-icon">🏰</div>
@@ -1325,7 +1498,7 @@
             </div>
         </div>
 
-        <!-- ========== КНОПКА БРОНИРОВАНИЯ ========== -->
+        <!-- КНОПКА БРОНИРОВАНИЯ -->
         <div class="booking-wrapper">
             <a href="tel:+79026984414" class="booking-button">
                 <div class="button-content">
@@ -1343,7 +1516,7 @@
         </div>
     </div>
 
-    <!-- ========== ФУТТЕР ========== -->
+    <!-- ФУТТЕР -->
     <div class="footer">
         <div class="footer-oval">
             <a href="/" class="footer-logo-link">
@@ -1353,7 +1526,6 @@
             <p>Куликовская 5, Северное Бутово</p>
             <p>+7 (902) 698 44 14</p>
             
-            <!-- ========== ПЯТЬ СОЦИАЛЬНЫХ КНОПОК ========== -->
             <div class="social-buttons">
                 <a href="https://t.me/chillbutovo" target="_blank" class="social-btn telegram">
                     <img src="{% static 'main/images/TelegramLink.png' %}" alt="Telegram" class="social-icon-img">
@@ -1381,17 +1553,12 @@
     </div>
 
     <script>
-        // Функция для проверки возраста
         function checkAge() {
-            // Проверяем, на главной ли мы странице
             const isMainPage = window.location.pathname === '/' || 
                               window.location.pathname === '/index/' || 
                               window.location.pathname.includes('index');
-            
-            // Проверяем, был ли уже подтвержден возраст в этой сессии
             const ageConfirmed = sessionStorage.getItem('ageConfirmed');
             
-            // Если мы на главной и возраст еще не подтвержден - показываем модалку
             if (isMainPage && !ageConfirmed) {
                 setTimeout(() => {
                     document.getElementById('ageModal').classList.add('show');
@@ -1400,14 +1567,12 @@
             }
         }
 
-        // Функция подтверждения возраста
         function confirmAge() {
             sessionStorage.setItem('ageConfirmed', 'true');
             document.getElementById('ageModal').classList.remove('show');
             document.body.classList.remove('modal-open');
         }
 
-        // Функция перенаправления для несовершеннолетних
         function redirectToYandex() {
             window.location.href = 'https://yandex.ru';
         }
@@ -1434,12 +1599,6 @@
                 document.querySelector('.menu-toggle').classList.remove('active');
                 document.getElementById('dropdownMenu').classList.remove('active');
             });
-        });
-
-        document.getElementById('ageModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                // Ничего не делаем
-            }
         });
     </script>
 </body>

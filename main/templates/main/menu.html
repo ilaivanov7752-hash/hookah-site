@@ -718,6 +718,22 @@
             <a href="#sweet">КИТКАТ</a>
         </div>
 
+        <!-- КУХНЯ (НОВЫЙ РАЗДЕЛ С ПОДРАЗДЕЛАМИ) -->
+        <div class="menu-item-main" onclick="toggleSubmenu('kitchen-submenu')">КУХНЯ</div>
+        <div id="kitchen-submenu" class="submenu">
+            <a href="#ossetian-pies">ОСЕТИНСКИЕ ПИРОГИ</a>
+            <a href="#hot-pastry">ГОРЯЧАЯ ВЫПЕЧКА</a>
+            <a href="#breakfast">ЗАВТРАК</a>
+            <a href="#first-courses">ПЕРВЫЕ БЛЮДА</a>
+            <a href="#second-courses">ВТОРЫЕ БЛЮДА</a>
+            <a href="#cold-appetizers">ХОЛОДНЫЕ ЗАКУСКИ</a>
+            <a href="#side-dishes">ГАРНИРЫ</a>
+            <a href="#sauces">СОУСЫ</a>
+            <a href="#shashlik">ШАШЛЫКИ НА МАНГАЛЕ</a>
+            <a href="#grilled-side">ГАРНИРЫ НА УГЛЯХ</a>
+            <a href="#pizza">ПИЦЦА</a>
+        </div>
+
         <!-- БАР -->
         <div class="menu-item-main" onclick="toggleSubmenu('bar-submenu')">БАР</div>
         <div id="bar-submenu" class="submenu">
@@ -755,12 +771,6 @@
             <a href="#tea">МАНГОВЫЙ ЧАЙ</a>
             <a href="#tea">ЯГОДНЫЙ ЧАЙ</a>
             <a href="#tea">ЖАСМИНОВЫЙ ЧАЙ</a>
-        </div>
-
-        <!-- ГОРЯЧИЕ БЛЮДА (ПУСТОЙ РАЗДЕЛ) -->
-        <div class="menu-item-main" onclick="toggleSubmenu('hot-submenu')">ГОРЯЧИЕ БЛЮДА</div>
-        <div id="hot-submenu" class="submenu">
-            <!-- РАЗДЕЛ ПУСТОЙ -->
         </div>
 
         <!-- МОЛОЧНЫЕ КОКТЕЙЛИ -->
@@ -802,6 +812,7 @@
                 <div class="category-btn" onclick="filterCategory('hookah')">КАЛЬЯНЫ</div>
                 <div class="category-btn" onclick="filterCategory('snack')">ЗАКУСКИ</div>
                 <div class="category-btn" onclick="filterCategory('sweet')">СЛАДКИЕ СНЕКИ</div>
+                <div class="category-btn" onclick="filterCategory('kitchen')">КУХНЯ</div>
                 <div class="category-btn" onclick="filterCategory('alcohol')">АЛКОГОЛЬ</div>
                 <div class="category-btn" onclick="filterCategory('lemonade')">ЛИМОНАДЫ</div>
                 <div class="category-btn" onclick="filterCategory('coffee')">КОФЕ</div>
@@ -853,6 +864,191 @@
                 <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БАУНТИ</span><span class="menu-item-price">{{ prices.sweet_баунти|default:"190" }}₽</span></div></div>
                 <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ТВИКС</span><span class="menu-item-price">{{ prices.sweet_твикс|default:"190" }}₽</span></div></div>
                 <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КИТКАТ</span><span class="menu-item-price">{{ prices.sweet_кит_кат|default:"190" }}₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ========== КУХНЯ ========== -->
+        
+        <!-- ОСЕТИНСКИЕ ПИРОГИ -->
+        <div class="menu-section" id="ossetian-pies" data-category="kitchen">
+            <div class="section-title">ОСЕТИНСКИЕ ПИРОГИ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С КАРТОФЕЛЕМ И СЫРОМ (1000 ГР)</span><span class="menu-item-price">1400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С КАРТОФЕЛЕМ И СЫРОМ (600 ГР)</span><span class="menu-item-price">950₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С СЫРОМ (1000 ГР)</span><span class="menu-item-price">1450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С СЫРОМ (600 ГР)</span><span class="menu-item-price">1000₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С МЯСОМ (600 ГР)</span><span class="menu-item-price">1200₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С СЫРОМ И СВЕКОЛЬНЫМИ ЛИСТЬЯМИ (1000 ГР)</span><span class="menu-item-price">1450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С СЫРОМ И СВЕКОЛЬНЫМИ ЛИСТЬЯМИ (600 ГР)</span><span class="menu-item-price">1000₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С ТЫКВОЙ (1000 ГР)</span><span class="menu-item-price">950₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С ТЫКВОЙ (600 ГР)</span><span class="menu-item-price">650₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С КАПУСТОЙ (1000 ГР)</span><span class="menu-item-price">1100₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С КАПУСТОЙ (600 ГР)</span><span class="menu-item-price">800₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С КУРИЦЕЙ И ГРИБАМИ (600 ГР)</span><span class="menu-item-price">1050₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С ВИШНЕЙ (1000 ГР)</span><span class="menu-item-price">1550₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С ВИШНЕЙ (600 ГР)</span><span class="menu-item-price">1050₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С МЯСОМ (1000 ГР)</span><span class="menu-item-price">1650₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСЕТИНСКИЙ ПИРОГ С МЯСОМ (400 ГР)</span><span class="menu-item-price">800₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПИРОГ С КУРИЦЕЙ И ГРИБАМИ (1000 ГР)</span><span class="menu-item-price">1500₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПИРОГ С КУРИЦЕЙ И СЫРОМ (1000 ГР)</span><span class="menu-item-price">1500₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФИРМЕННОЕ КОМБО (4 ПИРОГА ПО 1 КГ: МЯСО, СЫР СО СВЕКОЛЬНЫМИ ЛИСТЬЯМИ, КАРТОФЕЛЬ И СЫР, С ВИШНЕЙ)</span><span class="menu-item-price">5000₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КОМПЛЕКСНЫЙ ОБЕД</span><span class="menu-item-price">550₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ГОРЯЧАЯ ВЫПЕЧКА -->
+        <div class="menu-section" id="hot-pastry" data-category="kitchen">
+            <div class="section-title">ГОРЯЧАЯ ВЫПЕЧКА</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛЕПЕШКА ТАНДЫРНАЯ 1 ШТ</span><span class="menu-item-price">60₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛЕПЕШКА ТАНДЫРНАЯ 0,5 ШТ</span><span class="menu-item-price">40₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">САМСА ТАНДЫРНАЯ</span><span class="menu-item-price">150₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">САМСА КОМПЛЕКС 2 ШТ</span><span class="menu-item-price">330₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ЗАВТРАК -->
+        <div class="menu-section" id="breakfast" data-category="kitchen">
+            <div class="section-title">ЗАВТРАК</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЯЙЦО ЖАРЕННОЕ 1 ШТ</span><span class="menu-item-price">80₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СОСИСКИ ГОВЯЖЬИ 1 ШТ</span><span class="menu-item-price">100₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОМЛЕТ С КОЛБАСОЙ</span><span class="menu-item-price">280₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БЛИНЧИК С МЯСОМ 2 ШТ</span><span class="menu-item-price">150₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БЛИНЧИК С ТВОРОГОМ 2 ШТ</span><span class="menu-item-price">140₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БЛИНЧИК СО СМЕТАНОЙ 2 ШТ</span><span class="menu-item-price">130₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ПЕРВЫЕ БЛЮДА -->
+        <div class="menu-section" id="first-courses" data-category="kitchen">
+            <div class="section-title">ПЕРВЫЕ БЛЮДА</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШУРПА С ГОВЯДИНОЙ</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШУРПА С БАРАНИНОЙ</span><span class="menu-item-price">430₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАСТАВА</span><span class="menu-item-price">390₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛАГМАН УЙГУРСКИЙ</span><span class="menu-item-price">420₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛАГМАН УЗБЕКСКИЙ</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БОРЩ</span><span class="menu-item-price">350₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФАТИР ШУРПА</span><span class="menu-item-price">430₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СУП КУРИНЫЙ С ЛАПШОЙ</span><span class="menu-item-price">350₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НАХОТ ШУРПА</span><span class="menu-item-price">430₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КУЗА ШУРПА</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПЕЛЬМЕНИ В БУЛЬОНЕ</span><span class="menu-item-price">410₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СУП ЧУЧВАРА</span><span class="menu-item-price">400₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ВТОРЫЕ БЛЮДА -->
+        <div class="menu-section" id="second-courses" data-category="kitchen">
+            <div class="section-title">ВТОРЫЕ БЛЮДА</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПЛОВ + САЛАТ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КУРУТАБ С МЯСОМ</span><span class="menu-item-price">480₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ДОЛМА АССОРТИ</span><span class="menu-item-price">430₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНТЫ С ГОВЯДИНОЙ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАНТЫ 1 ШТ</span><span class="menu-item-price">130₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ХАНУМ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КУРИЦА С ОВОЩАМИ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БИФШТЕКС</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БИФСТРОГОНОВ С ПЮРЕ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАЗАН КЕБАБ С ГОВЯДИНОЙ</span><span class="menu-item-price">550₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАЗАН КЕБАБ С БАРАНИНОЙ</span><span class="menu-item-price">600₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АЧИК ГУШТ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЖИЗ БИЗ ГОВЯДИНА</span><span class="menu-item-price">550₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЖИЗ БИЗ БАРАНИНА</span><span class="menu-item-price">600₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАУРМА ЛАГМАН</span><span class="menu-item-price">430₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ФЕТУЧИНИ С КУРИЦЕЙ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СПАГЕТТИ КАРБОНАРА</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛАПША УДОН</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОДЖАХУРИ С ТЕЛЯТИНОЙ</span><span class="menu-item-price">500₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОДЖАХУРИ С КУРИЦЕЙ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОКОРОЧОК С ГАРНИРОМ</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">БЕШ БОРМАК</span><span class="menu-item-price">500₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КОТЛЕТА С ГАРНИРОМ</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРП ЖАРЕНЫЙ 1 КГ</span><span class="menu-item-price">1400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРП ТУШЕНЫЙ 1 КГ</span><span class="menu-item-price">1600₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПЛОВ ЧАЙХАНСКИЙ</span><span class="menu-item-price">3000₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ХОЛОДНЫЕ ЗАКУСКИ -->
+        <div class="menu-section" id="cold-appetizers" data-category="kitchen">
+            <div class="section-title">ХОЛОДНЫЕ ЗАКУСКИ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГОВЯЖИЙ ЯЗЫК</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АССОРТИ ИЗ СВЕЖИХ ОВОЩЕЙ</span><span class="menu-item-price">550₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАЗЫ ПО УЗБЕКСКИ</span><span class="menu-item-price">450₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ДОМАШНИЕ СОЛЕНЬЯ</span><span class="menu-item-price">350₽ / 550₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МЯСНОЕ АССОРТИ</span><span class="menu-item-price">850₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">СУЗМА</span><span class="menu-item-price">180₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛИМОН</span><span class="menu-item-price">130₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АЙРАН 1 СТАКАН</span><span class="menu-item-price">80₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АЙРАН 1 Л</span><span class="menu-item-price">230₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ГАРНИРЫ -->
+        <div class="menu-section" id="side-dishes" data-category="kitchen">
+            <div class="section-title">ГАРНИРЫ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРТОФЕЛЬ ФРИ</span><span class="menu-item-price">180₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРТОФЕЛЬ ДОЛЬКИ</span><span class="menu-item-price">210₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">РИС</span><span class="menu-item-price">130₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРТОФЕЛЬНОЕ ПЮРЕ</span><span class="menu-item-price">130₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ГРЕЧКА ОТВАРНАЯ</span><span class="menu-item-price">130₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРТОШКА С ГРИБАМИ</span><span class="menu-item-price">280₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- СОУСЫ -->
+        <div class="menu-section" id="sauces" data-category="kitchen">
+            <div class="section-title">СОУСЫ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЧЕСНОЧНЫЙ СОУС</span><span class="menu-item-price">50₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОСТРЫЕ ПЕРЧИКИ</span><span class="menu-item-price">40₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">АДЖИКА</span><span class="menu-item-price">40₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫЧНЫЙ СОУС</span><span class="menu-item-price">40₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">НАРШАРАБ</span><span class="menu-item-price">50₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ДОМАШНИЙ СОУС</span><span class="menu-item-price">50₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ШАШЛЫКИ НА МАНГАЛЕ -->
+        <div class="menu-section" id="shashlik" data-category="kitchen">
+            <div class="section-title">ШАШЛЫКИ НА МАНГАЛЕ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ЛЮЛЯ КЕБАБ ГОВЯДИНА</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК ИЗ БАР. СЕМЕЧКЕ</span><span class="menu-item-price">530₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК ИЗ КОРЕЙКИ</span><span class="menu-item-price">630₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК ИЗ КУРИЦЫ</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК ИЗ БАРАНИНЫ</span><span class="menu-item-price">550₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК ИЗ ТЕЛЯТИНЫ</span><span class="menu-item-price">500₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК ИЗ КРЫЛЫШЕК</span><span class="menu-item-price">400₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК НА 3 ПЕРСОНЫ</span><span class="menu-item-price">3000₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК НА 5 ПЕРСОН</span><span class="menu-item-price">4000₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАШЛЫК НА 7 ПЕРСОН</span><span class="menu-item-price">6000₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАРП НА УГЛЯХ 1 КГ</span><span class="menu-item-price">1500₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ГАРНИРЫ НА УГЛЯХ -->
+        <div class="menu-section" id="grilled-side" data-category="kitchen">
+            <div class="section-title">ГАРНИРЫ НА УГЛЯХ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ОВОЩИ НА МАНГАЛЕ</span><span class="menu-item-price">300₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ШАМПИНЬОНЫ НА МАНГАЛЕ</span><span class="menu-item-price">300₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КАР.ЧЕРРИ С ДУМБОЙ</span><span class="menu-item-price">300₽</span></div></div>
+            </div>
+        </div>
+
+        <!-- ПИЦЦА -->
+        <div class="menu-section" id="pizza" data-category="kitchen">
+            <div class="section-title">ПИЦЦА 30 СМ</div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">МАРГАРИТА</span><span class="menu-item-price">1050₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">ПЕПЕРОНИ</span><span class="menu-item-price">1150₽</span></div></div>
+                <div class="menu-item"><div class="menu-item-header"><span class="menu-item-title">КУРИЦА С ГРИБАМИ</span><span class="menu-item-price">1350₽</span></div></div>
             </div>
         </div>
 
