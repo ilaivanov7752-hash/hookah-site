@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+
+Host: https://pochilim.ru
+Sitemap: https://pochilim.ru/static/sitemap.xml
