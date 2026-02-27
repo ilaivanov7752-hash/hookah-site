@@ -17,6 +17,11 @@ ALLOWED_HOSTS = [
     'pochilim.ru',
     'www.pochilim.ru'
 ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://hookah-site-production.up.railway.app',
+    'https://pochilim.ru',
+    'https://www.pochilim.ru'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
