@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
 
-    path('robots.txt', RedirectView.as_view(url='/static/robots.txt', permanent=True)),
+    path('robots.txt', RedirectView.as_view(url='robots.txt', permanent=True)),
 
 ]
