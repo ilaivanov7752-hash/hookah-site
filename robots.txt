@@ -4,4 +4,4 @@ Disallow: /private/
 Allow: /
 
 Host: https://pochilim.ru
-Sitemap: https://pochilim.ru/static/sitemap.xml
+Sitemap: https://pochilim.ru/sitemap.xml
