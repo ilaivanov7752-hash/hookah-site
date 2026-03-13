@@ -776,6 +776,176 @@
             border-radius: 20px;
         }
 
+        /* ========== НОВАЯ СЕКЦИЯ КОНТАКТЫ ========== */
+        .contacts-section {
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.2), rgba(26, 59, 58, 0.3));
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contacts-section::before {
+            content: '📞';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 120px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .contacts-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contacts-title {
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contacts-title span {
+            display: block;
+            font-size: 24px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .contacts-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid white;
+            transition: 0.3s;
+        }
+
+        .contacts-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .contacts-row {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(10, 186, 181, 0.3);
+            transition: 0.3s;
+        }
+
+        .contacts-row:last-child {
+            border-bottom: none;
+        }
+
+        .contacts-row:hover {
+            background: rgba(10, 186, 181, 0.1);
+            border-radius: 30px;
+            transform: scale(1.02);
+        }
+
+        .contacts-big-icon {
+            font-size: 40px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0abab5, #1a3b3a);
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 10px 20px rgba(10, 186, 181, 0.3);
+        }
+
+        .contacts-info {
+            flex: 1;
+        }
+
+        .contacts-label {
+            font-size: 14px;
+            color: #1a3b3a;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .contacts-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a3b3a;
+            word-break: break-word;
+        }
+
+        .contacts-value a {
+            color: #1a3b3a;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contacts-value a:hover {
+            color: #0abab5;
+        }
+
+        .contacts-copy {
+            background: white;
+            border: 2px solid #0abab5;
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a3b3a;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .contacts-copy:hover {
+            background: #0abab5;
+            color: white;
+            border-color: white;
+            transform: scale(1.05);
+        }
+
+        .contacts-copy.copied {
+            background: #4CAF50;
+            color: white;
+            border-color: white;
+        }
+
+        .contacts-badge {
+            display: inline-block;
+            background: #0abab5;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: center;
+            border: 2px solid white;
+        }
+
         /* ========== ФУТТЕР ========== */
         .footer {
             padding: 40px 20px 60px;
@@ -1145,6 +1315,52 @@
                 font-size: 18px;
             }
 
+            .contacts-section {
+                padding: 40px 20px;
+                border-radius: 40px;
+                margin: 40px 0;
+            }
+
+            .contacts-title {
+                font-size: 36px;
+            }
+
+            .contacts-title span {
+                font-size: 18px;
+            }
+
+            .contacts-card {
+                padding: 25px;
+                border-radius: 40px;
+            }
+
+            .contacts-row {
+                padding: 15px 20px;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .contacts-big-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+            }
+
+            .contacts-value {
+                font-size: 18px;
+            }
+
+            .contacts-copy {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contacts-badge {
+                font-size: 14px;
+                padding: 6px 15px;
+            }
+
             .footer {
                 padding: 30px 15px 40px;
             }
@@ -1303,6 +1519,21 @@
                 padding: 4px 10px;
             }
 
+            .contacts-row {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: center;
+            }
+
+            .contacts-big-icon {
+                margin: 0 auto;
+            }
+
+            .contacts-info {
+                width: 100%;
+                text-align: center;
+            }
+
             .age-modal-content {
                 padding: 25px 15px;
                 border-radius: 25px;
@@ -1418,6 +1649,8 @@
         <a href="{% url 'index' %}">Главная</a>
         <a href="{% url 'menu' %}">Меню</a>
         <a href="#loft-section">Аренда лофта</a>
+        <!-- ДОБАВЛЕНА ВКЛАДКА КОНТАКТЫ -->
+        <a href="#contacts-section">Контакты</a>
     </div>
 
     <!-- ХЕДЕР -->
@@ -1556,7 +1789,60 @@
         <div class="schedule-block">
             <p style="font-size: 32px;">ВРЕМЯ РАБОТЫ</p>
             <p><strong>Будни:</strong> 14:00 - 00:00</p>
-            <p><strong>Пятница и выходные:</strong> 14:00 - 03:00</p>
+            <p><strong>Пятница и выходные:</strong> 15:00 - 03:00</p>
+        </div>
+    </div>
+
+    <!-- НОВАЯ СЕКЦИЯ КОНТАКТЫ ПЕРЕД ФУТЕРОМ -->
+    <div class="contacts-section" id="contacts-section">
+        <div class="contacts-grid">
+            <div class="contacts-title">
+                КОНТАКТЫ
+                <span>СВЯЖИСЬ С НАМИ</span>
+            </div>
+            
+            <div class="contacts-card">
+                <div class="contacts-row">
+                    <div class="contacts-big-icon">📱</div>
+                    <div class="contacts-info">
+                        <div class="contacts-label">TELEGRAM</div>
+                        <div class="contacts-value">
+                            <a href="https://t.me/BrocerGOD" target="_blank">@BrocerGOD</a>
+                        </div>
+                    </div>
+                    <button class="contacts-copy" onclick="copyToClipboard('@BrocerGOD', this)">
+                        <span>📋</span> КОПИРОВАТЬ
+                    </button>
+                </div>
+
+                <div class="contacts-row">
+                    <div class="contacts-big-icon">📞</div>
+                    <div class="contacts-info">
+                        <div class="contacts-label">ТЕЛЕФОН</div>
+                        <div class="contacts-value">
+                            <a href="tel:+79026984414">8 (902) 698-44-14</a>
+                        </div>
+                    </div>
+                    <button class="contacts-copy" onclick="copyToClipboard('+79026984414', this)">
+                        <span>📋</span> КОПИРОВАТЬ
+                    </button>
+                </div>
+
+                <div class="contacts-row">
+                    <div class="contacts-big-icon">📍</div>
+                    <div class="contacts-info">
+                        <div class="contacts-label">АДРЕС</div>
+                        <div class="contacts-value">Куликовская 5, Северное Бутово</div>
+                    </div>
+                    <a href="https://yandex.ru/maps/?text=Куликовская 5, Москва" target="_blank" class="contacts-copy">
+                        <span>🗺️</span> ОТКРЫТЬ
+                    </a>
+                </div>
+
+                <div class="contacts-badge">
+                    ⚡ ОТВЕЧАЕМ БЫСТРО! ПИШИ, ЗВОНИ, ПРИХОДИ
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1640,6 +1926,20 @@
                 document.getElementById('dropdownMenu').classList.remove('active');
             });
         });
+
+        // Функция копирования в буфер обмена
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span>✅</span> СКОПИРОВАНО';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
