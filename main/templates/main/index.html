@@ -862,7 +862,6 @@
         }
 
         .contacts-big-icon {
-            font-size: 40px;
             width: 60px;
             height: 60px;
             display: flex;
@@ -872,6 +871,15 @@
             border-radius: 50%;
             color: white;
             box-shadow: 0 10px 20px rgba(10, 186, 181, 0.3);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .contacts-big-icon img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+            display: block;
         }
 
         .contacts-info {
@@ -918,6 +926,8 @@
             align-items: center;
             gap: 8px;
             margin-left: auto;
+            text-decoration: none;
+            flex-shrink: 0;
         }
 
         .contacts-copy:hover {
@@ -1045,7 +1055,6 @@
 
         .social-btn:hover .social-icon-img {
             transform: scale(1.1);
-            filter: brightness(1.2);
         }
 
         .social-tooltip {
@@ -1343,7 +1352,11 @@
             .contacts-big-icon {
                 width: 50px;
                 height: 50px;
-                font-size: 30px;
+            }
+
+            .contacts-big-icon img {
+                width: 28px;
+                height: 28px;
             }
 
             .contacts-value {
@@ -1649,7 +1662,6 @@
         <a href="{% url 'index' %}">Главная</a>
         <a href="{% url 'menu' %}">Меню</a>
         <a href="#loft-section">Аренда лофта</a>
-        <!-- ДОБАВЛЕНА ВКЛАДКА КОНТАКТЫ -->
         <a href="#contacts-section">Контакты</a>
     </div>
 
@@ -1770,7 +1782,7 @@
                     </div>
                 </div>
                 <div class="loft-quote">Здесь каждый гость почувствует себя особенным, а ты — главным героем вечера!</div>
-                <a href="https://www.avito.ru/user/..." target="_blank" class="loft-button">СМОТРЕТЬ НА АВИТО</a>
+                <a href="https://www.avito.ru/moskva/predlozheniya_uslug/arenda_lofta_s_karaoke_7820805290" target="_blank" class="loft-button">СМОТРЕТЬ НА АВИТО</a>
             </div>
         </div>
 
@@ -1793,7 +1805,7 @@
         </div>
     </div>
 
-    <!-- НОВАЯ СЕКЦИЯ КОНТАКТЫ ПЕРЕД ФУТЕРОМ -->
+    <!-- СЕКЦИЯ КОНТАКТЫ -->
     <div class="contacts-section" id="contacts-section">
         <div class="contacts-grid">
             <div class="contacts-title">
@@ -1802,8 +1814,11 @@
             </div>
             
             <div class="contacts-card">
+                <!-- Telegram -->
                 <div class="contacts-row">
-                    <div class="contacts-big-icon">📱</div>
+                    <div class="contacts-big-icon">
+                        <img src="{% static 'main/images/TelegramLink.png' %}" alt="Telegram">
+                    </div>
                     <div class="contacts-info">
                         <div class="contacts-label">TELEGRAM</div>
                         <div class="contacts-value">
@@ -1815,8 +1830,9 @@
                     </button>
                 </div>
 
+                <!-- Телефон -->
                 <div class="contacts-row">
-                    <div class="contacts-big-icon">📞</div>
+                    <div class="contacts-big-icon" style="font-size: 30px;">📞</div>
                     <div class="contacts-info">
                         <div class="contacts-label">ТЕЛЕФОН</div>
                         <div class="contacts-value">
@@ -1828,8 +1844,11 @@
                     </button>
                 </div>
 
+                <!-- Адрес с иконкой из хедера -->
                 <div class="contacts-row">
-                    <div class="contacts-big-icon">📍</div>
+                    <div class="contacts-big-icon">
+                        <img src="{% static 'main/images/headder.png' %}" alt="Адрес">
+                    </div>
                     <div class="contacts-info">
                         <div class="contacts-label">АДРЕС</div>
                         <div class="contacts-value">Куликовская 5, Северное Бутово</div>
@@ -1861,11 +1880,11 @@
                     <img src="{% static 'main/images/TelegramLink.png' %}" alt="Telegram" class="social-icon-img">
                     <span class="social-tooltip">Telegram</span>
                 </a>
-                <a href="https://tiktok.com/@pochilim" target="_blank" class="social-btn tiktok">
+                <a href="https://www.tiktok.com/@pochilim5?_r=1&_t=ZS-93vTN2Ba5lE" target="_blank" class="social-btn tiktok">
                     <img src="{% static 'main/images/TikTokLink.png' %}" alt="TikTok" class="social-icon-img">
                     <span class="social-tooltip">TikTok</span>
                 </a>
-                <a href="https://instagram.com/pochilim" target="_blank" class="social-btn instagram">
+                <a href="https://www.instagram.com/chill.butovo?igsh=MTFoOWI2cnVvaTcycw==" target="_blank" class="social-btn instagram">
                     <img src="{% static 'main/images/InstagramLink.png' %}" alt="Instagram" class="social-icon-img">
                     <span class="social-tooltip">Instagram</span>
                 </a>
@@ -1873,7 +1892,7 @@
                     <img src="{% static 'main/images/vcicon.png' %}" alt="VK" class="social-icon-img">
                     <span class="social-tooltip">VK</span>
                 </a>
-                <a href="https://www.avito.ru/user/..." target="_blank" class="social-btn avito">
+                <a href="https://www.avito.ru/moskva/predlozheniya_uslug/arenda_lofta_s_karaoke_7820805290" target="_blank" class="social-btn avito">
                     <img src="{% static 'main/images/avito-logo.png' %}" alt="Avito" class="social-icon-img">
                     <span class="social-tooltip">Avito</span>
                 </a>
@@ -1927,7 +1946,6 @@
             });
         });
 
-        // Функция копирования в буфер обмена
         function copyToClipboard(text, button) {
             navigator.clipboard.writeText(text).then(() => {
                 const originalText = button.innerHTML;
