@@ -19,3 +19,6 @@ def menu(request):
     print("="*50)
     
     return render(request, 'main/menu.html', {'prices': price_dict})
+
+def promo(request):
+    return render(request, 'main/promo.html')
