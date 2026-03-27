@@ -16,11 +16,14 @@ ALLOWED_HOSTS = [
     '.railway.app',
     'pochilim.ru',
     'www.pochilim.ru'
+    'hookah-site-1.onrender.com',  # добавляем хост Render
+    '.onrender.com',  # опционально: разрешить все поддомены onrender.com
 ]
 CSRF_TRUSTED_ORIGINS = [
+    'https://hookah-site-1.onrender.com',  # добавляем
     'https://hookah-site-production.up.railway.app',
     'https://pochilim.ru',
-    'https://www.pochilim.ru'
+    'https://www.pochilim.ru',
 ]
 
 INSTALLED_APPS = [
